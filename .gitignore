@@ -55,3 +55,7 @@ src/components/LoadingScreen.js
 # - FormsLanding, CommunityPartnerForm, SponsorForm, JudgeForm
 # - CommunityPartnerPage, SponsorPage, JudgePage
 # - App.js, google-apps-script.js
+
+# Documentation files
+*.md
+!README.md
