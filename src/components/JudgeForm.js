@@ -254,13 +254,6 @@ const JudgeForm = () => {
     }
   };
 
-  const handleChoiceSelect = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }));
-    }
-  };
-
   const renderStep = () => {
     const step = steps[currentStep];
 

@@ -1,29 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './FormsLanding.css';
+import BackgroundVideo from './BackgroundVideo';
 
 const FormsLanding = () => {
   const ENABLE_GLITCH = false;
 
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [isReverse, setIsReverse] = useState(false);
-  const forwardRef = useRef(null);
-  const reverseRef = useRef(null);
   const [currentTheme, setCurrentTheme] = useState('default');
 
-  const themes = [
-    "default",
-    "glass",
-    "neumorphism",
-    "gradient",
-    "ai",
-    "retro",
-    "minimal",
-    "fluid",
-    "polygon"
-  ];
-
   useEffect(() => {
+    const themes = [
+      "default",
+      "glass",
+      "neumorphism",
+      "gradient",
+      "ai",
+      "retro",
+      "minimal",
+      "fluid",
+      "polygon"
+    ];
+
     const body = document.body;
 
     body.dataset.theme = 'default';
@@ -67,7 +64,7 @@ const FormsLanding = () => {
       clearInterval(glitchInterval);
       clearTimeout(mainLoopTimeout);
     };
-  }, []);
+  }, [ENABLE_GLITCH]);
 
   useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -82,77 +79,9 @@ const FormsLanding = () => {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const forward = forwardRef.current;
-    const reverse = reverseRef.current;
-    if (!forward || !reverse) return;
-
-    forward.play();
-
-    const showReverseSafely = () => {
-      reverse.currentTime = 0;
-      reverse.play();
-
-      const reveal = () => {
-        setIsReverse(true);
-      };
-
-      if ("requestVideoFrameCallback" in reverse) {
-        reverse.requestVideoFrameCallback(reveal);
-      } else {
-        reverse.addEventListener("timeupdate", reveal, { once: true });
-      }
-    };
-
-    const showForwardSafely = () => {
-      forward.currentTime = 0;
-      forward.play();
-
-      const reveal = () => {
-        setIsReverse(false);
-      };
-
-      if ("requestVideoFrameCallback" in forward) {
-        forward.requestVideoFrameCallback(reveal);
-      } else {
-        forward.addEventListener("timeupdate", reveal, { once: true });
-      }
-    };
-
-    forward.addEventListener("ended", showReverseSafely);
-    reverse.addEventListener("ended", showForwardSafely);
-
-    return () => {
-      forward.removeEventListener("ended", showReverseSafely);
-      reverse.removeEventListener("ended", showForwardSafely);
-    };
-  }, []);
-
   return (
     <div className="forms-landing">
-      <div className="video-section">
-        <video
-          ref={forwardRef}
-          className={`background-video ${!isReverse ? 'visible' : ''}`}
-          src="/Hackaccino.mp4"
-          muted
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-        />
-
-        <video
-          ref={reverseRef}
-          className={`background-video ${isReverse ? 'visible' : ''}`}
-          src="/Hackaccino-reverse.mp4"
-          muted
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-        />
-
-        <div className="video-overlay"></div>
-      </div>
+      <BackgroundVideo />
       <div className="forms-container">
         <div className="forms-header">
           <h1>HACKACCINO 4.0</h1>
@@ -163,8 +92,6 @@ const FormsLanding = () => {
           <Link 
             to="/sponsor" 
             className={`form-card sponsor-card ${currentTheme === 'polygon' ? 'hexagon' : ''}`}
-            onMouseEnter={() => setHoveredCard('sponsor')}
-            onMouseLeave={() => setHoveredCard(null)}
           >
             <div className="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -179,8 +106,6 @@ const FormsLanding = () => {
           <Link 
             to="/community-partner" 
             className={`form-card community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
-            onMouseEnter={() => setHoveredCard('community')}
-            onMouseLeave={() => setHoveredCard(null)}
           >
             <div className="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -197,8 +122,6 @@ const FormsLanding = () => {
           <Link 
             to="/judge" 
             className={`form-card judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}
-            onMouseEnter={() => setHoveredCard('judge')}
-            onMouseLeave={() => setHoveredCard(null)}
           >
             <div className="card-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import FormsLanding from './components/FormsLanding';
 import CommunityPartnerPage from './pages/CommunityPartnerPage';
@@ -20,8 +20,6 @@ function AppContent() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(false);
-
   return (
     <Router>
       <AppContent />
