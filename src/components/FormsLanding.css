@@ -1,16 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  --bg: rgba(255,255,255,0.1);
+  --blur: 20px;
+  --border: rgba(255,255,255,0.25);
+  --shadow: 0 8px 40px rgba(31,38,135,0.4);
+  --accent: linear-gradient(135deg, #ff6a00, #7f00ff);
+  --text: white;
+}
+
+.style-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: linear-gradient(135deg, #ff6a00, #7f00ff);
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
 .forms-landing {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
+  overflow: hidden;
+}
+
+.video-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .forms-container {
   max-width: 1200px;
   width: 100%;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .forms-header {
@@ -41,16 +109,16 @@
 }
 
 .form-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 50px 30px;
   text-decoration: none;
-  color: white;
+  color: var(--text);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: var(--shadow);
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -66,9 +134,20 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
   transform: scaleX(0);
   transition: transform 0.3s ease;
+}
+
+.sponsor-card::before {
+  background: linear-gradient(90deg, rgba(102, 126, 234, 0.8), rgba(167, 139, 250, 0.8));
+}
+
+.judge-card::before {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.8), rgba(245, 158, 11, 0.8));
+}
+
+.community-card::before {
+  background: linear-gradient(90deg, rgba(251, 113, 133, 0.8), rgba(244, 63, 94, 0.8));
 }
 
 .form-card:hover::before {
@@ -157,3 +236,235 @@
     font-size: 1.5rem;
   }
 }
+
+.forms-header h1,
+.form-card h2 {
+  font-weight: 700;
+}
+
+body[data-theme="glass"] {
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.3px;
+  --bg: rgba(255,255,255,0.12);
+  --blur: 25px;
+  --border: rgba(255,255,255,0.3);
+  --shadow: 0 8px 40px rgba(31,38,135,0.5);
+}
+
+body[data-theme="neumorphism"] {
+  font-family: 'Poppins', system-ui, sans-serif;
+  --bg: #2a1c2f;
+  --blur: 0px;
+  --border: transparent;
+  --shadow:
+    10px 10px 20px #1a0f1e,
+    -10px -10px 20px #3a2940;
+}
+
+body[data-theme="default"] {
+  font-family: 'Poppins', system-ui, sans-serif;
+  --bg: #2a1c2f;
+  --blur: 0px;
+  --border: transparent;
+  --shadow: none;
+}
+
+body[data-theme="gradient"] {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: 0.4px;
+}
+
+body[data-theme="gradient"] .form-card {
+  background: linear-gradient(135deg,
+    #ff6a00,
+    #ff005d,
+    #7f00ff
+  );
+  backdrop-filter: none;
+  border: none;
+}
+
+body[data-theme="ai"] {
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  --bg: rgba(20,10,40,0.8);
+  --blur: 30px;
+  --border: rgba(255,120,255,0.4);
+  --shadow: 0 0 40px rgba(255,100,255,0.6);
+}
+
+body[data-theme="ai"] .form-card {
+  box-shadow:
+    0 0 30px rgba(255,100,255,0.4),
+    inset 0 0 20px rgba(255,100,255,0.2);
+}
+
+body[data-theme="ai"] .forms-header h1,
+body[data-theme="ai"] .form-card h2 {
+  text-shadow:
+    0 0 10px rgba(255,120,255,0.8),
+    0 0 30px rgba(255,100,255,0.6);
+}
+
+body[data-theme="retro"] {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+}
+
+body[data-theme="retro"] .form-card {
+  border-radius: 0;
+  background: #2b0033;
+  border: 4px solid #ff6a00;
+  box-shadow: 8px 8px 0 #7f00ff;
+}
+
+body[data-theme="minimal"] {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.2px;
+  --bg: rgba(255,255,255,0.05);
+  --blur: 0px;
+  --border: rgba(255,255,255,0.1);
+  --shadow: none;
+}
+
+body[data-theme="minimal"] .form-card {
+  background: transparent;
+}
+
+body[data-theme="fluid"] {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+body[data-theme="fluid"] .form-card {
+  background: radial-gradient(
+    circle at top left,
+    rgba(255,120,255,0.4),
+    rgba(255,100,0,0.3)
+  );
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes glitch-shift {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -1px); }
+  80% { transform: translate(2px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-clip {
+  0% { clip-path: inset(0 0 0 0); }
+  25% { clip-path: inset(12% 0 8% 0); }
+  50% { clip-path: inset(0 10% 15% 0); }
+  75% { clip-path: inset(10% 5% 12% 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes rgb-glitch {
+  0% { filter: drop-shadow(2px 0 red) drop-shadow(-2px 0 cyan); }
+  50% { filter: drop-shadow(-2px 0 magenta) drop-shadow(2px 0 yellow); }
+  100% { filter: none; }
+}
+
+body.glitching .form-card {
+  animation:
+    glitch-shift 0.15s infinite,
+    glitch-clip 0.25s infinite,
+    rgb-glitch 0.2s infinite;
+}
+
+body.glitching .forms-header h1,
+body.glitching .form-card h2 {
+  animation: glitch-shift 0.12s infinite;
+}
+
+body.glitching .background-video {
+  filter: contrast(1.4) saturate(1.7);
+}
+
+body.glitching .form-card:hover {
+  transform: none !important;
+}
+
+/* Polygon Shapes */
+.form-card.hexagon {
+  clip-path: polygon(
+    25% 0%,
+    75% 0%,
+    100% 50%,
+    75% 100%,
+    25% 100%,
+    0% 50%
+  );
+}
+
+.form-card.heptagon {
+  clip-path: polygon(
+    50% 5%,
+    85% 22%,
+    94% 60%,
+    69% 90%,
+    31% 90%,
+    6% 60%,
+    15% 22%
+  );
+}
+
+.form-card.nonagon {
+  clip-path: polygon(
+    50% 3%,
+    85% 10%,
+    97% 38%,
+    87% 69%,
+    63% 91%,
+    37% 91%,
+    13% 69%,
+    3% 38%,
+    15% 10%
+  );
+}
+
+.form-card.hexagon:hover,
+.form-card.heptagon:hover,
+.form-card.nonagon:hover {
+  transform: scale(1.05);
+}
+
+.form-card::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  clip-path: inherit;
+  border: 1px solid rgba(255,255,255,0.25);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body[data-theme="polygon"] .form-card::after {
+  opacity: 1;
+}
+
+body[data-theme="polygon"] {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  letter-spacing: 0.5px;
+  --bg: rgba(20,10,40,0.85);
+  --blur: 25px;
+  --border: rgba(255,120,255,0.4);
+  --shadow: 0 0 40px rgba(255,100,255,0.5);
+}
+
+body[data-theme="polygon"] .form-card {
+  box-shadow:
+    0 0 40px rgba(255,120,255,0.5),
+    inset 0 0 25px rgba(255,100,255,0.3);
+}
+

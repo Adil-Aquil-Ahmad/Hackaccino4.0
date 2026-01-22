@@ -22,7 +22,6 @@ body {
   position: relative;
 }
 
-/* Brochure-inspired background layers */
 .App::before {
   content: '';
   position: fixed;
@@ -35,7 +34,6 @@ body {
   z-index: 0;
 }
 
-/* Geometric blur effects from brochure */
 .App::after {
   content: '';
   position: fixed;
@@ -61,13 +59,11 @@ body {
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
 
-/* Common section styling */
 section {
   padding: 80px 20px;
   max-width: 1200px;

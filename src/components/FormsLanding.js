@@ -1,105 +1,106 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './FormsLanding.css';
 
 const FormsLanding = () => {
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
+  const ENABLE_GLITCH = false;
+
   const [hoveredCard, setHoveredCard] = useState(null);
-  const animationRef = useRef(null);
-  const currentColorRef = useRef({ r: 78, g: 105, b: 228 }); // Default color #4E69E4
+  const [isReverse, setIsReverse] = useState(false);
+  const videoRef = useRef(null);
+  const [currentTheme, setCurrentTheme] = useState('default');
 
-  const interpolateColor = (start, end, progress) => {
-    return {
-      r: Math.round(start.r + (end.r - start.r) * progress),
-      g: Math.round(start.g + (end.g - start.g) * progress),
-      b: Math.round(start.b + (end.b - start.b) * progress)
-    };
-  };
-
-  const rgbToHex = (r, g, b) => {
-    return (r << 16) | (g << 8) | b;
-  };
-
-  useEffect(() => {
-    if (!vantaEffect && window.VANTA) {
-      setVantaEffect(window.VANTA.NET({
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0x4E69E4,
-        backgroundColor: 0x191037,
-        points: 10.00,
-        maxDistance: 20.00,
-        spacing: 15.00
-      }))
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
+  const themes = [
+    "default",
+    "glass",
+    "neumorphism",
+    "gradient",
+    "ai",
+    "retro",
+    "minimal",
+    "fluid",
+    "polygon"
+  ];
 
   useEffect(() => {
-    if (vantaEffect) {
-      let targetColor;
-      
-      if (hoveredCard === 'judge') {
-        targetColor = { r: 245, g: 158, b: 11 }; // #f59e0b
-      } else if (hoveredCard === 'sponsor') {
-        targetColor = { r: 102, g: 126, b: 234 }; // #667eea
-      } else if (hoveredCard === 'community') {
-        targetColor = { r: 253, g: 115, b: 138 }; // #FD738A
-      } else {
-        targetColor = { r: 78, g: 105, b: 228 }; // #4E69E4
-      }
+    const body = document.body;
 
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+    body.dataset.theme = 'default';
+    setCurrentTheme('default');
 
-      let progress = 0;
-      const duration = 1500; // 1.5 seconds for full transition
-      const startTime = Date.now();
-      const startColor = { ...currentColorRef.current };
+    if (!ENABLE_GLITCH) return;
 
-      const animate = () => {
-        const elapsed = Date.now() - startTime;
-        progress = Math.min(elapsed / duration, 1);
-        
-        // Easing function for smoother transition
-        const eased = progress < 0.5 
-          ? 2 * progress * progress 
-          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+    let glitchInterval;
+    let mainLoopTimeout;
 
-        const newColor = interpolateColor(startColor, targetColor, eased);
-        currentColorRef.current = newColor;
-        
-        vantaEffect.setOptions({
-          color: rgbToHex(newColor.r, newColor.g, newColor.b)
-        });
+    const startGlitchCycle = () => {
+      body.classList.add("glitching");
 
-        if (progress < 1) {
-          animationRef.current = requestAnimationFrame(animate);
-        }
-      };
+      let i = 0;
+      glitchInterval = setInterval(() => {
+        body.dataset.theme = themes[i % themes.length];
+        setCurrentTheme(themes[i % themes.length]);
+        i++;
+      }, 120);
 
-      animate();
-    }
+      const glitchDuration = 900 + Math.random() * 600;
+
+      setTimeout(() => {
+        clearInterval(glitchInterval);
+        body.classList.remove("glitching");
+
+        const randomTheme =
+          themes[Math.floor(Math.random() * themes.length)];
+        body.dataset.theme = randomTheme;
+        setCurrentTheme(randomTheme);
+
+        const stableTime = 3000 + Math.random() * 2000;
+
+        mainLoopTimeout = setTimeout(startGlitchCycle, stableTime);
+      }, glitchDuration);
+    };
+
+    startGlitchCycle();
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      clearInterval(glitchInterval);
+      clearTimeout(mainLoopTimeout);
     };
-  }, [hoveredCard, vantaEffect])
+  }, []);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setCurrentTheme(document.body.dataset.theme || 'glass');
+    });
+    
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleEnded = () => {
+      setIsReverse(prev => !prev);
+    };
+
+    video.addEventListener('ended', handleEnded);
+    return () => video.removeEventListener('ended', handleEnded);
+  }, [isReverse]);
 
   return (
-    <div className="forms-landing" ref={vantaRef}>
+    <div className="forms-landing">
+      <div className="video-section">
+        <video ref={videoRef} autoPlay muted playsInline className="background-video" key={isReverse ? 'reverse' : 'forward'}>
+          <source src={isReverse ? "/Hackaccino - REVERSE - Videobolt.net.mp4" : "/Hackaccino.mp4"} type="video/mp4" />
+        </video>
+        <div className="video-overlay"></div>
+      </div>
       <div className="forms-container">
         <div className="forms-header">
           <h1>HACKACCINO 4.0</h1>
@@ -109,7 +110,7 @@ const FormsLanding = () => {
         <div className="forms-grid">
           <Link 
             to="/sponsor" 
-            className="form-card sponsor-card"
+            className={`form-card sponsor-card ${currentTheme === 'polygon' ? 'hexagon' : ''}`}
             onMouseEnter={() => setHoveredCard('sponsor')}
             onMouseLeave={() => setHoveredCard(null)}
           >
@@ -125,7 +126,7 @@ const FormsLanding = () => {
 
           <Link 
             to="/community-partner" 
-            className="form-card community-card"
+            className={`form-card community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
             onMouseEnter={() => setHoveredCard('community')}
             onMouseLeave={() => setHoveredCard(null)}
           >
@@ -143,7 +144,7 @@ const FormsLanding = () => {
 
           <Link 
             to="/judge" 
-            className="form-card judge-card"
+            className={`form-card judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}
             onMouseEnter={() => setHoveredCard('judge')}
             onMouseLeave={() => setHoveredCard(null)}
           >

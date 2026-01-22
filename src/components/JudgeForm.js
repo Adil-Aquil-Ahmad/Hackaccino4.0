@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './JudgeForm.css';
 
 const JudgeForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [formData, setFormData] = useState({
     fullName: '',
     organization: '',
@@ -203,6 +202,9 @@ const JudgeForm = () => {
   const handleNext = () => {
     if (currentStep === 0 || validateStep()) {
       if (currentStep === steps.length - 2) {
+        // Show thank you page immediately
+        setCurrentStep(prev => prev + 1);
+        // Submit in background
         handleSubmit();
       } else {
         setCurrentStep(prev => prev + 1);
@@ -236,11 +238,11 @@ const JudgeForm = () => {
       });
 
       console.log('Form submitted successfully:', formData);
-      setCurrentStep(prev => prev + 1);
+      setIsSubmitting(false);
       
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitError(error.message || 'Failed to submit form. Please try again.');
+      // Don't show error to user since they're already on thank you page
       setIsSubmitting(false);
     }
   };
@@ -290,31 +292,35 @@ const JudgeForm = () => {
     );
   };
 
-  useEffect(() => {
-    if (!vantaEffect && window.VANTA) {
-      setVantaEffect(window.VANTA.NET({
-        el: vantaRef.current,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0xf59e0b,
-        backgroundColor: 0xd97706,
-        points: 8.00,
-        maxDistance: 22.00,
-        spacing: 16.00
-      }))
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy()
-    }
-  }, [vantaEffect])
-
   return (
-    <div className="judge-form" ref={vantaRef}>
+    <div className={`judge-form ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <button 
+        className="theme-toggle"
+        onClick={() => setIsDarkMode(!isDarkMode)}
+        aria-label="Toggle theme"
+      >
+        <div className="toggle-track">
+          <div className="toggle-thumb">
+            {isDarkMode ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            )}
+          </div>
+        </div>
+      </button>
       <div className="form-container">
         <div className="form-header">
           <h1>HACKACCINO 2026</h1>
