@@ -1,7 +1,7 @@
 {
-  "name": "hackaccino-worker",
+  "name": "forms-hackaccino",
   "compatibility_date": "2026-01-23",
   "assets": {
-    "directory": "./public"
+    "directory": "./build"
   }
 }
