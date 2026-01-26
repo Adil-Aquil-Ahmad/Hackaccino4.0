@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './FormsLanding.css';
-import BackgroundVideo from './BackgroundVideo';
+import ShaderBackground from './ShaderBackground';
 
 const FormsLanding = () => {
   const ENABLE_GLITCH = false;
@@ -96,7 +95,7 @@ const FormsLanding = () => {
 
   return (
     <div className="forms-landing">
-      <BackgroundVideo />
+      <ShaderBackground />
       <div className="page-sections">
         <div className="section">
           <div className="forms-container">
@@ -107,8 +106,10 @@ const FormsLanding = () => {
               <p>Select Your Category</p>
             </div>
             <div className="forms-grid">
-              <Link 
-                to="/sponsor" 
+              <a 
+                href="https://forms.hackaccino.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`form-card sponsor-card ${currentTheme === 'polygon' ? 'hexagon' : ''}`}
               >
                 <div className="card-content">
@@ -123,9 +124,11 @@ const FormsLanding = () => {
                     <p>Become a sponsor and support innovation</p>
                   </div>
                 </div>
-              </Link>
-              <Link 
-                to="/community-partner" 
+              </a>
+              <a 
+                href="https://forms.hackaccino.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`form-card community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
               >
                 <div className="card-content">
@@ -142,9 +145,11 @@ const FormsLanding = () => {
                     <p>Partner with us to reach 1500+ students</p>
                   </div>
                 </div>
-              </Link>
-              <Link 
-                to="/judge" 
+              </a>
+              <a 
+                href="https://forms.hackaccino.in"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`form-card judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}
               >
                 <div className="card-content">
@@ -163,7 +168,7 @@ const FormsLanding = () => {
                     <p>Join as a judge and evaluate innovation</p>
                   </div>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
