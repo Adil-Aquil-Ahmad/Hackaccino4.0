@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FormsLanding.css';
-import ShaderBackground from './ShaderBackground';
+import Animation from '../animation/animation';
 
 const FormsLanding = () => {
   const ENABLE_GLITCH = false;
@@ -95,7 +95,7 @@ const FormsLanding = () => {
 
   return (
     <div className="forms-landing">
-      <ShaderBackground />
+      <Animation />
       <div className="page-sections">
         <div className="section">
           <div className="forms-container">

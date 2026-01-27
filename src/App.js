@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import FormsLanding from './components/FormsLanding';
-import LandingPage from './pages/LandingPage';
-import BaristasPage from './pages/BaristasPage';
-import SponsorsListPage from './pages/SponsorsListPage';
+import LandingPage from './components/LandingPage';
+import BaristasPage from './components/BaristasPage';
+import SponsorsListPage from './components/SponsorsListPage';
 
 function AppContent() {
   return (
