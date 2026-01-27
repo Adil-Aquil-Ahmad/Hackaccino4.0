@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './FormsLanding.css';
 import Animation from '../animation/animation';
 
 const FormsLanding = () => {
@@ -129,7 +128,7 @@ const FormsLanding = () => {
                 href="https://forms.hackaccino.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`form-card community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
+                className={`landing-form-card landing-community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
               >
                 <div className="card-content">
                   <div className="card-icon">
@@ -150,7 +149,7 @@ const FormsLanding = () => {
                 href="https://forms.hackaccino.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`form-card judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}
+                className={`landing-form-card landing-judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}
               >
                 <div className="card-content">
                   <div className="card-icon">

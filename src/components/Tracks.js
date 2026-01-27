@@ -1,5 +1,4 @@
 import React from 'react';
-import './Tracks.css';
 import { FaRobot, FaCloud, FaVrCardboard, FaLightbulb, FaLink } from 'react-icons/fa';
 
 const Tracks = () => {
@@ -32,33 +31,27 @@ const Tracks = () => {
   ];
 
   return (
-    <section id="tracks" className="section tracks" style={{backgroundColor: 'black', color: 'white', padding: '5rem 1.5rem'}}>
-      <div className="section-content" style={{maxWidth: '72rem', margin: '0 auto'}}>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem'}}>
-          <h2 className="section-title" style={{fontSize: '3rem', fontWeight: 'bold', color: '#D1C7FF', fontFamily: 'sans-serif'}}>Tracks</h2>
-          <p className="tracks-subtitle" style={{color: '#a3a3a3', fontSize: '1.25rem'}}>
+    <section id="tracks" className="text-white py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col gap-6 mb-8">
+          <h2 className="text-5xl font-bold text-[#D1C7FF] font-sans">Tracks</h2>
+          <p className="text-[#a3a3a3] text-xl">
             Choose from our carefully curated tracks designed to inspire innovation and creativity in different domains of technology and problem-solving.
           </p>
         </div>
         
-        <div className="tracks-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem'}}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-6">
           {tracks.map((track, index) => (
-            <div key={index} className="track-card" style={{
-              padding: '1.5rem', 
-              borderRadius: '0.75rem', 
-              backdropFilter: 'blur(12px)', 
-              backgroundColor: 'rgba(255,255,255,0.05)', 
-              border: '1px solid rgba(255,255,255,0.1)',
-              cursor: 'pointer',
-              transition: 'all 0.3s'
-            }}>
-              <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                <div style={{width: '3rem', height: '3rem', borderRadius: '0.5rem', backgroundColor: 'rgba(209, 199, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div key={index} className="group relative p-6 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 cursor-pointer transition-all duration-300 hover:-translate-y-2.5 hover:scale-[1.02] hover:bg-white/10 hover:border-white/30 hover:shadow-[0_15px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+              <div className="flex flex-col gap-4 relative z-10">
+                <div className="w-12 h-12 rounded-lg bg-[#D1C7FF]/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[5deg]">
                   {track.icon}
                 </div>
-                <h3 style={{color: '#D1C7FF', fontSize: '1.25rem', fontWeight: '600'}}>{track.title}</h3>
-                <p style={{color: '#a3a3a3', fontSize: '0.875rem', lineHeight: '1.6'}}>{track.description}</p>
+                <h3 className="text-[#D1C7FF] text-xl font-semibold">{track.title}</h3>
+                <p className="text-[#a3a3a3] text-sm leading-[1.6]">{track.description}</p>
               </div>
+              {/* Gradient overlay for hover effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"></div>
             </div>
           ))}
         </div>

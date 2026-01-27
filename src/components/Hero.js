@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './Hero.css';
 import { FaInstagram, FaTwitter, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -9,13 +8,13 @@ gsap.registerPlugin(useGSAP, SplitText);
 
 const DigitWheel = ({ digit }) => {
   return (
-    <div className="digit-wheel-container">
+    <div className="h-20 w-[50px] md:h-20 md:w-[50px] min-[480px]:h-[50px] min-[480px]:w-[32px] max-[479px]:h-[45px] max-[479px]:w-[28px] overflow-hidden relative bg-black/30 rounded-lg shadow-inner flex-shrink-0">
       <div 
-        className="digit-wheel-track"
+        className="flex flex-col transition-transform duration-[800ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform"
         style={{ transform: `translateY(-${digit * 10}%)` }}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-          <div key={num} className="digit-wheel-number">
+          <div key={num} className="h-20 md:h-20 min-[480px]:h-[50px] max-[479px]:h-[45px] flex items-center justify-center font-['Space_Grotesk'] text-[3rem] md:text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] font-bold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             {num}
           </div>
         ))}
@@ -117,69 +116,69 @@ const Hero = () => {
   const secondsDigits = formatTime(timeLeft.seconds);
 
   return (
-    <section id="hero" className="hero" ref={containerRef}>
-      <div className="hero-content">
-        <div className="hero-badge" ref={badgeRef}>
-          <span className="badge">APRIL 12-13, 2026</span>
+    <section id="hero" className="min-h-screen flex items-center justify-center relative bg-transparent overflow-hidden" ref={containerRef}>
+      <div className="text-center z-[2] relative px-5">
+        <div className="mb-5" ref={badgeRef}>
+          <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">APRIL 12-13, 2026</span>
         </div>
         
-        <div className="logo-container">
-          <h1 className="logo" id="hero-main-logo" ref={logoRef}>HACKACCINO 4.0</h1>
+        <div className="mb-5">
+          <h1 className="font-['Array-Bold'] text-6xl md:text-[6rem] max-md:text-[4rem] max-sm:text-[2.5rem] font-black text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)] m-0 tracking-[2px] break-words" id="hero-main-logo" ref={logoRef}>HACKACCINO 4.0</h1>
         </div>
         
-        <h2 className="tagline" ref={taglineRef}>Brewing Innovation</h2>
-        <p className="subtitle" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
+        <h2 className="font-['Poppins'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-white font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" ref={taglineRef}>Brewing Innovation</h2>
+        <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[10px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
         
-        <div className="countdown-container glass-panel" ref={countdownRef}>
-          <div className="countdown-item">
-            <div className="digit-group">
+        <div className="flex justify-center items-start gap-5 min-[480px]:gap-3 max-[479px]:gap-2 my-[30px] mx-auto py-[30px] px-[50px] min-[480px]:px-[15px] max-[479px]:px-[10px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
               {daysDigits.map((digit, index) => (
                 <DigitWheel key={`day-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="label">Days</span>
+            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Days</span>
           </div>
-          <div className="separator">:</div>
-          <div className="countdown-item">
-            <div className="digit-group">
+          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
               {hoursDigits.map((digit, index) => (
                 <DigitWheel key={`hour-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="label">Hours</span>
+            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Hours</span>
           </div>
-          <div className="separator">:</div>
-          <div className="countdown-item">
-            <div className="digit-group">
+          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
               {minutesDigits.map((digit, index) => (
                 <DigitWheel key={`min-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="label">Minutes</span>
+            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Minutes</span>
           </div>
-          <div className="separator">:</div>
-          <div className="countdown-item">
-            <div className="digit-group">
+          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="flex flex-col items-center">
+            <div className="flex gap-1.5">
               {secondsDigits.map((digit, index) => (
                 <DigitWheel key={`sec-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="label">Seconds</span>
+            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Seconds</span>
           </div>
         </div>
         
-        <p className="description" ref={descriptionRef}>
+        <p className="font-['Poppins'] text-[1.1rem] mb-[30px] text-white/80 leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]" ref={descriptionRef}>
           Join us at Bennett University for an exhilarating experience filled with<br/>
           innovation, collaboration, and endless coffee!
         </p>
 
-        <div className="hero-socials-bottom" ref={socialsRef}>
+        <div className="flex justify-center gap-5 sm:gap-[15px] z-10 py-2.5 px-[30px] sm:px-5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[50px] mx-auto w-fit sm:w-[90%]" ref={socialsRef}>
           <a 
             href="https://www.instagram.com/hackaccino/" 
             target="_blank" 
             rel="noreferrer"
             aria-label="Instagram"
-            className="social-icon-btn"
+            className="flex items-center justify-center w-[50px] h-[50px] sm:w-10 sm:h-10 rounded-full bg-white/10 text-white text-[1.5rem] sm:text-[1.2rem] transition-all duration-300 border border-white/20 hover:-translate-y-[5px] hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]"
           >
             <FaInstagram />
           </a>
@@ -188,7 +187,7 @@ const Hero = () => {
             target="_blank" 
             rel="noreferrer"
             aria-label="Twitter"
-            className="social-icon-btn"
+            className="flex items-center justify-center w-[50px] h-[50px] sm:w-10 sm:h-10 rounded-full bg-white/10 text-white text-[1.5rem] sm:text-[1.2rem] transition-all duration-300 border border-white/20 hover:-translate-y-[5px] hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]"
           >
             <FaTwitter />
           </a>
@@ -197,7 +196,7 @@ const Hero = () => {
             target="_blank" 
             rel="noreferrer"
             aria-label="WhatsApp"
-            className="social-icon-btn"
+            className="flex items-center justify-center w-[50px] h-[50px] sm:w-10 sm:h-10 rounded-full bg-white/10 text-white text-[1.5rem] sm:text-[1.2rem] transition-all duration-300 border border-white/20 hover:-translate-y-[5px] hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]"
           >
             <FaWhatsapp />
           </a>
@@ -206,7 +205,7 @@ const Hero = () => {
             target="_blank" 
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="social-icon-btn"
+            className="flex items-center justify-center w-[50px] h-[50px] sm:w-10 sm:h-10 rounded-full bg-white/10 text-white text-[1.5rem] sm:text-[1.2rem] transition-all duration-300 border border-white/20 hover:-translate-y-[5px] hover:scale-110 hover:bg-white hover:text-black hover:shadow-[0_10px_20px_rgba(0,0,0,0.2)]"
           >
             <FaLinkedin />
           </a>

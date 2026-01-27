@@ -1,7 +1,6 @@
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import './animation.css';
 
 const ShaderPlane = ({
   vertexShader,
@@ -177,7 +176,7 @@ const Animation = ({
     }
   `,
   uniforms = {},
-  className = "shader-background-container",
+  className = "absolute top-0 left-0 w-full h-screen -z-[1] pointer-events-none",
 }) => {
   const shaderUniforms = useMemo(
     () => ({
@@ -190,7 +189,7 @@ const Animation = ({
 
   return (
     <div className={className}>
-      <Canvas className="shader-canvas">
+      <Canvas className="w-full h-full">
         <ShaderPlane
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

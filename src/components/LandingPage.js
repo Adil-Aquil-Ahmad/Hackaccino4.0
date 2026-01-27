@@ -7,11 +7,10 @@ import Timeline from './Timeline';
 import FAQ from './FAQ';
 import Footer from './Footer';
 import Animation from '../animation/animation';
-import './FormsLanding.css'; 
 
 const LandingPage = () => {
   return (
-    <div className="landing-page" style={{position: 'relative', overflowX: 'hidden'}}>
+    <div className="landing-page relative overflow-x-hidden">
       <Animation />
       <Header />
       <Hero />

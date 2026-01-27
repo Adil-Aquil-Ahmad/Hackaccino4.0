@@ -1,5 +1,4 @@
 import React from 'react';
-import './Timeline.css';
 
 const Timeline = () => {
   const schedule = [
@@ -25,37 +24,29 @@ const Timeline = () => {
   ];
 
   return (
-    <section id="timeline" className="section timeline" style={{backgroundColor: 'black', color: 'white', padding: '5rem 1.5rem'}}>
-      <div className="section-content" style={{maxWidth: '72rem', margin: '0 auto'}}>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2rem'}}>
-          <h2 className="section-title" style={{fontSize: '3rem', fontWeight: 'bold', color: '#D1C7FF', fontFamily: 'sans-serif'}}>Timeline</h2>
-          <p className="timeline-subtitle" style={{color: '#a3a3a3', fontSize: '1.25rem'}}>
+    <section id="timeline" className="text-white py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col gap-6 mb-8">
+          <h2 className="text-5xl font-bold text-[#D1C7FF] font-sans">Timeline</h2>
+          <p className="text-[#a3a3a3] text-xl">
             Follow the schedule to make the most out of your 24 hours.
           </p>
         </div>
 
-        <div className="timeline-container" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'}}>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
           {schedule.map((day, index) => (
-            <div key={index} className="timeline-day" style={{
-              backgroundColor: 'rgba(255,255,255,0.05)', 
-              backdropFilter: 'blur(12px)',
-              borderRadius: '1rem',
-              border: '1px solid rgba(255,255,255,0.1)',
-              padding: '1.5rem',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
+            <div key={index} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6 relative overflow-hidden">
                {/* Decorative background elements matching the reference site style */}
-               <div style={{position: 'absolute', top: '20%', left: '-20px', width: '100px', height: '200px', background: 'linear-gradient(to right, #D1C7FF, transparent)', opacity: 0.1, transform: 'rotate(15deg)', filter: 'blur(20px)', pointerEvents: 'none'}}></div>
+               <div className="absolute top-[20%] -left-5 w-[100px] h-[200px] bg-gradient-to-r from-[#D1C7FF] to-transparent opacity-10 rotate-[15deg] blur-[20px] pointer-events-none"></div>
 
-              <div className="day-header" style={{marginBottom: '1.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem'}}>
-                <h3 style={{color: '#D1C7FF', fontSize: '1.5rem', fontWeight: '600'}}>{day.day}</h3>
+              <div className="mb-6 border-b border-white/10 pb-4">
+                <h3 className="text-[#D1C7FF] text-2xl font-semibold">{day.day}</h3>
               </div>
-              <div className="events-list" style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
+              <div className="flex flex-col gap-6">
                 {day.events.map((event, idx) => (
-                  <div key={idx} className="event-item" style={{display: 'flex', flexDirection: 'column', gap: '0.25rem'}}>
-                    <span className="event-time" style={{color: event.highlight ? '#D1C7FF' : '#a3a3a3', fontSize: '0.875rem', fontWeight: event.highlight ? 'bold' : 'normal'}}>{event.time}</span>
-                    <span className="event-description" style={{color: event.highlight ? 'white' : '#e5e5e5', fontSize: '1.125rem', fontWeight: event.highlight ? '600' : 'normal'}}>{event.description}</span>
+                  <div key={idx} className="flex flex-col gap-1">
+                    <span className={`text-sm ${event.highlight ? 'text-[#D1C7FF] font-bold' : 'text-[#a3a3a3] font-normal'}`}>{event.time}</span>
+                    <span className={`text-lg ${event.highlight ? 'text-white font-semibold' : 'text-[#e5e5e5] font-normal'}`}>{event.description}</span>
                   </div>
                 ))}
               </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Header.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
@@ -101,47 +100,58 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-      <div className="header-container">
-        <div className={`logo-section ${showLogo ? 'visible' : ''}`} onClick={() => handleNavigation('/')}>
-          <div className="header-logo">HACKACCINO</div>
-          <div className="version">4.0</div>
+    <header className={`fixed top-5 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-[1000] py-2.5 px-5 transition-all duration-300 ease-out rounded-[50px] border border-white/5 backdrop-blur-sm ${scrolled ? 'bg-black/80 backdrop-blur-md border-white/10 shadow-lg shadow-black/10' : 'bg-black/20'}`}>
+      <div className="w-full mx-auto flex justify-between items-center relative">
+        <div 
+          className={`flex items-center gap-2.5 no-underline cursor-pointer z-[1002] transition-all duration-300 ease-out ${showLogo ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-5'}`} 
+          onClick={() => handleNavigation('/')}
+        >
+          <div className="font-['Array-Bold'] text-[1.8rem] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">HACKACCINO</div>
+          <div className="bg-white/20 text-white px-3 py-1 rounded-[20px] text-[0.8rem] font-bold font-['Poppins'] border border-white/30">4.0</div>
         </div>
         
         {/* Desktop Nav */}
-        <nav className="nav-menu desktop-nav">
-          <button onClick={() => handleNavigation('/baristas')} className="nav-link">Baristas</button>
-          <button onClick={() => handleNavigation('/sponsors')} className="nav-link">Sponsors</button>
-          <button onClick={() => handleNavigation('/', 'faq')} className="nav-link">FAQ</button>
+        <nav className="hidden md:flex gap-[30px] items-center">
+          <button onClick={() => handleNavigation('/baristas')} className="text-white/80 no-underline font-medium text-base font-['Poppins'] transition-all duration-300 relative bg-transparent border-none cursor-pointer py-2 hover:text-white group">
+            Baristas
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <button onClick={() => handleNavigation('/sponsors')} className="text-white/80 no-underline font-medium text-base font-['Poppins'] transition-all duration-300 relative bg-transparent border-none cursor-pointer py-2 hover:text-white group">
+            Sponsors
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </button>
+          <button onClick={() => handleNavigation('/', 'faq')} className="text-white/80 no-underline font-medium text-base font-['Poppins'] transition-all duration-300 relative bg-transparent border-none cursor-pointer py-2 hover:text-white group">
+            FAQ
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
+          </button>
         </nav>
 
-        <div className="header-right-actions">
+        <div className="flex items-center gap-5 relative">
           <a 
             href="https://hackaccino.devfolio.co" 
             target="_blank" 
             rel="noreferrer"
-            className="certificate-btn desktop-only"
-            style={{textDecoration: 'none', color: 'white', background: 'linear-gradient(135deg, #FF3300, #FF991A)', padding: '10px 20px', borderRadius: '50px', fontWeight: 'bold'}}
+            className="hidden md:flex items-center font-['Poppins'] transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] no-underline text-white bg-gradient-to-br from-[#FF3300] to-[#FF991A] px-5 py-2.5 rounded-[50px] font-bold"
           >
             {buttonText}
           </a>
 
-          <div className="mobile-menu-icon" onClick={toggleMenu}>
+          <div className="block md:hidden text-white text-[1.8rem] cursor-pointer z-[1002] transition-all duration-300" onClick={toggleMenu}>
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </div>
         </div>
       </div>
 
       {/* Mobile Nav */}
-      <div className={`mobile-nav ${isMenuOpen ? 'active' : ''}`}>
-        <button onClick={() => handleNavigation('/baristas')} className="nav-link mobile-link">Baristas</button>
-        <button onClick={() => handleNavigation('/sponsors')} className="nav-link mobile-link">Sponsors</button>
-        <button onClick={() => handleNavigation('/', 'faq')} className="nav-link mobile-link">FAQ</button>
+      <div className={`md:hidden absolute top-full left-0 w-full mt-2.5 bg-black/90 backdrop-blur-md border border-white/10 rounded-[20px] p-5 flex-col gap-5 items-center shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-300 z-[999] ${isMenuOpen ? 'opacity-100 translate-y-0 visible flex pointer-events-auto' : 'opacity-0 -translate-y-2.5 invisible hidden pointer-events-none'}`}>
+        <button onClick={() => handleNavigation('/baristas')} className="text-white text-[1.2rem] w-auto text-center bg-transparent border-none font-['Poppins']">Baristas</button>
+        <button onClick={() => handleNavigation('/sponsors')} className="text-white text-[1.2rem] w-auto text-center bg-transparent border-none font-['Poppins']">Sponsors</button>
+        <button onClick={() => handleNavigation('/', 'faq')} className="text-white text-[1.2rem] w-auto text-center bg-transparent border-none font-['Poppins']">FAQ</button>
         <a 
             href="https://hackaccino.devfolio.co" 
             target="_blank" 
             rel="noreferrer"
-            className="nav-link mobile-link"
+            className="text-white text-[1.2rem] w-auto text-center font-['Poppins'] no-underline"
         >
             {buttonText}
         </a>

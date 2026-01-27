@@ -1,5 +1,4 @@
 import React from 'react';
-import './SponsorCard.css'; // New metallic glass UI styles
 
 const Sponsors = () => {
   const sponsors = {
@@ -96,7 +95,7 @@ const Sponsors = () => {
                 />
               </div>
               <div className="flex flex-col gap-1 items-center">
-                <h3 className="text-white text-lg font-semibold font-heading">{sponsor.name}</h3>
+                <h3 className="text-white text-lg font-semibold font-['Space_Grotesk']">{sponsor.name}</h3>
                 <p className="text-neutral-400 text-xs font-medium uppercase tracking-wider">{sponsor.title}</p>
               </div>
             </div>
@@ -113,7 +112,7 @@ const Sponsors = () => {
                     onError={(e) => {e.target.onerror = null; e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(sponsor.name)}&background=random`}}
                   />
                   {(tier === 'platinum' || tier === 'gold') && (
-                    <h3 className="text-3xl font-bold text-white font-heading uppercase tracking-wide">{sponsor.name}</h3>
+                    <h3 className="text-3xl font-bold text-white font-['Space_Grotesk'] uppercase tracking-wide">{sponsor.name}</h3>
                   )}
                 </div>
                 
@@ -147,20 +146,11 @@ const Sponsors = () => {
   };
 
   return (
-    <div 
-      className="min-h-screen w-full mt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans mx-auto"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', maxWidth: '100%', paddingTop: '150px' }}
-    >
-      {/* Background elements */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-900/10 rounded-full blur-3xl"></div>
-      </div>
-
+    <div className="min-h-screen w-full mt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans mx-auto max-w-full pt-[150px]">
+      
       <div className="max-w-7xl mx-auto space-y-64 relative z-10">
         <div className="text-center space-y-6 pt-10">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 font-heading">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 font-['Space_Grotesk']">
             OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">SPONSORS</span>
           </h1>
           <p className="text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
@@ -171,7 +161,7 @@ const Sponsors = () => {
         {/* Platinum Sponsors */}
         {sponsors.platinum.length > 0 && (
           <div className="space-y-12 pb-12 mb-32">
-            <h2 className="text-3xl font-bold text-center text-blue-400 uppercase tracking-widest font-heading">Platinum Sponsors</h2>
+            <h2 className="text-3xl font-bold text-center text-blue-400 uppercase tracking-widest font-['Space_Grotesk']">Platinum Sponsors</h2>
             <div className="grid grid-cols-1 gap-16">
               {sponsors.platinum.map(s => <SponsorCard key={s.name} sponsor={s} tier="platinum" />)}
             </div>
@@ -181,7 +171,7 @@ const Sponsors = () => {
         {/* Gold Sponsors */}
         {sponsors.gold.length > 0 && (
           <div className="space-y-12 pb-12 mb-32">
-            <h2 className="text-3xl font-bold text-center text-yellow-500 uppercase tracking-widest font-heading">Gold Sponsors</h2>
+            <h2 className="text-3xl font-bold text-center text-yellow-500 uppercase tracking-widest font-['Space_Grotesk']">Gold Sponsors</h2>
             <div className="grid grid-cols-1 gap-16">
               {sponsors.gold.map(s => <SponsorCard key={s.name} sponsor={s} tier="gold" />)}
             </div>
@@ -191,7 +181,7 @@ const Sponsors = () => {
         {/* Silver Sponsors */}
         {sponsors.silver.length > 0 && (
           <div className="space-y-12 pb-12 mb-32">
-            <h2 className="text-3xl font-bold text-center text-gray-300 uppercase tracking-widest font-heading">Silver Sponsors</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-300 uppercase tracking-widest font-['Space_Grotesk']">Silver Sponsors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {sponsors.silver.map(s => <SponsorCard key={s.name} sponsor={s} tier="silver" />)}
             </div>
@@ -201,7 +191,7 @@ const Sponsors = () => {
         {/* Bronze Sponsors */}
         {sponsors.bronze.length > 0 && (
           <div className="space-y-12 pb-12 mb-32">
-            <h2 className="text-3xl font-bold text-center text-orange-700 uppercase tracking-widest font-heading">Bronze Sponsors</h2>
+            <h2 className="text-3xl font-bold text-center text-orange-700 uppercase tracking-widest font-['Space_Grotesk']">Bronze Sponsors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {sponsors.bronze.map(s => <SponsorCard key={s.name} sponsor={s} tier="bronze" />)}
             </div>
@@ -211,7 +201,7 @@ const Sponsors = () => {
         {/* Partners */}
         {(sponsors.partners.length > 0 || sponsors.inkind.length > 0) && (
           <div className="space-y-12 pb-12">
-            <h2 className="text-3xl font-bold text-center text-[#D1C7FF] uppercase tracking-widest font-heading">Partners</h2>
+            <h2 className="text-3xl font-bold text-center text-[#D1C7FF] uppercase tracking-widest font-['Space_Grotesk']">Partners</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {[...sponsors.partners, ...sponsors.inkind].map(s => <SponsorCard key={s.name} sponsor={s} tier="partner" />)}
             </div>

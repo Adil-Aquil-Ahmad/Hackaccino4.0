@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './FAQ.css';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
 const FAQ = () => {
@@ -33,54 +32,35 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="section faq" style={{backgroundColor: 'black', color: 'white', padding: '5rem 1.5rem'}}>
-      <div className="section-content" style={{maxWidth: '48rem', margin: '0 auto'}}>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '3rem', textAlign: 'center'}}>
-          <h2 className="section-title" style={{fontSize: '3rem', fontWeight: 'bold', color: '#D1C7FF', fontFamily: 'sans-serif'}}>FAQ</h2>
-          <p className="faq-subtitle" style={{color: '#a3a3a3', fontSize: '1.25rem'}}>
+    <section id="faq" className="py-20 px-6 text-white">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex flex-col gap-6 mb-12 text-center">
+          <h2 className="text-5xl font-bold text-[#D1C7FF] font-sans">FAQ</h2>
+          <p className="text-[#a3a3a3] text-xl">
             Everything you need to know about the hackathon.
           </p>
         </div>
 
-        <div className="faq-container" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+        <div className="flex flex-col gap-4">
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`faq-item ${activeIndex === index ? 'active' : ''}`}
-              style={{
-                backgroundColor: activeIndex === index ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.03)',
-                borderRadius: '1rem',
-                border: '1px solid rgba(255,255,255,0.1)',
-                overflow: 'hidden',
-                transition: 'all 0.3s'
-              }}
+              className={`rounded-2xl border border-white/10 overflow-hidden transition-all duration-300 ${
+                activeIndex === index ? 'bg-white/[0.08]' : 'bg-white/[0.03]'
+              }`}
             >
               <button 
-                className="faq-question" 
+                className="w-full p-6 flex justify-between items-center bg-transparent border-none text-white text-lg font-medium cursor-pointer text-left"
                 onClick={() => toggleFAQ(index)}
-                style={{
-                  width: '100%',
-                  padding: '1.5rem',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  background: 'none',
-                  border: 'none',
-                  color: 'white',
-                  fontSize: '1.125rem',
-                  fontWeight: '500',
-                  cursor: 'pointer',
-                  textAlign: 'left'
-                }}
               >
                 {faq.question}
-                <span className="faq-icon" style={{color: '#D1C7FF', display: 'flex', alignItems: 'center'}}>
+                <span className="flex items-center text-[#D1C7FF]">
                   {activeIndex === index ? <FaMinus /> : <FaPlus />}
                 </span>
               </button>
               
               {activeIndex === index && (
-                <div className="faq-answer" style={{padding: '0 1.5rem 1.5rem 1.5rem', color: '#a3a3a3', lineHeight: '1.6'}}>
+                <div className="px-6 pb-6 text-[#a3a3a3] leading-relaxed">
                   <p>{faq.answer}</p>
                 </div>
               )}
@@ -88,8 +68,8 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="faq-contact" style={{marginTop: '3rem', textAlign: 'center'}}>
-          <p style={{color: '#a3a3a3'}}>Still have questions? Email us at <a href="mailto:hackaccino@bennett.edu.in" style={{color: '#D1C7FF', textDecoration: 'none'}}>hackaccino@bennett.edu.in</a></p>
+        <div className="mt-12 text-center">
+          <p className="text-[#a3a3a3]">Still have questions? Email us at <a href="mailto:hackaccino@bennett.edu.in" className="text-[#D1C7FF] no-underline hover:underline">hackaccino@bennett.edu.in</a></p>
         </div>
       </div>
     </section>

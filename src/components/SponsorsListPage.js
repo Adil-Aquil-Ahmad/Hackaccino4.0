@@ -6,7 +6,7 @@ import Sponsors from './Sponsors';
 
 const SponsorsListPage = () => {
   return (
-    <div className="sponsors-page" style={{position: 'relative', overflowX: 'hidden', minHeight: '100vh'}}>
+    <div className="sponsors-page relative overflow-x-hidden min-h-screen">
       <Animation />
       <Header />
       <Sponsors />
