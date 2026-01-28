@@ -69,7 +69,7 @@ const FAQ = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-[#a3a3a3]">Still have questions? Email us at <a href="mailto:hackaccino@bennett.edu.in" className="text-[#D1C7FF] no-underline hover:underline">hackaccino@bennett.edu.in</a></p>
+          <p className="text-[#a3a3a3]">Still have questions? Email us at <a href="mailto:contact@hackaccino.in" className="text-[#D1C7FF] no-underline hover:underline">contact@hackaccino.in</a></p>
         </div>
       </div>
     </section>

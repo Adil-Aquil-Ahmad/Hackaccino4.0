@@ -7,7 +7,7 @@ import Sponsors from './Sponsors';
 const SponsorsListPage = () => {
   return (
     <div className="sponsors-page relative overflow-x-hidden min-h-screen">
-      <Animation />
+      <Animation className="absolute top-0 left-0 w-full h-[55vh] -z-[1] pointer-events-none" />
       <Header />
       <Sponsors />
       <Footer />

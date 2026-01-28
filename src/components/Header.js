@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import HackaccinoLogo from '../assets/hackaccino_logo.svg';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -106,6 +107,15 @@ const Header = () => {
           className={`flex items-center gap-2.5 no-underline cursor-pointer z-[1002] transition-all duration-300 ease-out ${showLogo ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-5'}`} 
           onClick={() => handleNavigation('/')}
         >
+          <img 
+            src={HackaccinoLogo} 
+            alt="Hackaccino" 
+            className="w-10 h-10 object-contain" 
+            style={{ 
+              filter: 'drop-shadow(white 0px 0px 1px) drop-shadow(white 0px 0px 1px)',
+              WebkitFilter: 'drop-shadow(white 0px 0px 1px) drop-shadow(white 0px 0px 1px)'
+            }}
+          />
           <div className="font-['Array-Bold'] text-[1.8rem] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)] cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.5)]">HACKACCINO</div>
           <div className="bg-white/20 text-white px-3 py-1 rounded-[20px] text-[0.8rem] font-bold font-['Poppins'] border border-white/30">4.0</div>
         </div>

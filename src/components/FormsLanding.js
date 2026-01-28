@@ -106,7 +106,7 @@ const FormsLanding = () => {
             </div>
             <div className="forms-grid">
               <a 
-                href="https://forms.hackaccino.in"
+                href="https://forms.hackaccino.in/sponsor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`form-card sponsor-card ${currentTheme === 'polygon' ? 'hexagon' : ''}`}
@@ -125,7 +125,7 @@ const FormsLanding = () => {
                 </div>
               </a>
               <a 
-                href="https://forms.hackaccino.in"
+                href="https://forms.hackaccino.in/community-partner"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`landing-form-card landing-community-card ${currentTheme === 'polygon' ? 'heptagon' : ''}`}
@@ -146,7 +146,7 @@ const FormsLanding = () => {
                 </div>
               </a>
               <a 
-                href="https://forms.hackaccino.in"
+                href="https://forms.hackaccino.in/judge"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`landing-form-card landing-judge-card ${currentTheme === 'polygon' ? 'nonagon' : ''}`}

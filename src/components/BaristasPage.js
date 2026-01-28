@@ -6,10 +6,10 @@ import Baristas from './Baristas';
 
 const BaristasPage = () => {
   return (
-    <div className="baristas-page relative overflow-x-hidden min-h-screen">
+    <div className="baristas-page" style={{position: 'relative', overflowX: 'hidden', minHeight: '100vh'}}>
       <Animation />
       <Header />
-      <div className="pt-[100px]">
+      <div style={{ paddingTop: '100px' }}>
         <Baristas />
       </div>
       <Footer />
