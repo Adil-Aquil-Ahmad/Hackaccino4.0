@@ -3,7 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 import Animation from '../animation/animation';
 import { CardBody, CardContainer, CardItem } from './ui/3d-card';
-import { GlowingEffect } from './ui/glowing-effect';
 import baristasData from '../data/baristas.json';
 
 const BaristasPage = () => {

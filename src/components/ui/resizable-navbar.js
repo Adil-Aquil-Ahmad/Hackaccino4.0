@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import hackaccinoLogo from '../../assets/hackaccino_logo.svg';
 
 export function cn(...inputs) {

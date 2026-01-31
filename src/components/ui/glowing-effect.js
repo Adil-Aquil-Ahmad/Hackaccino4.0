@@ -26,8 +26,6 @@ export const GlowingEffect = ({
       setPosition({ x, y });
 
       if (glow) {
-        const center = { x: rect.width / 2, y: rect.height / 2 };
-        const distanceFromCenter = Math.hypot(x - center.x, y - center.y);
         // Simple proximity logic: always show when inside, maybe fade edges
         setOpacity(1); 
       }
