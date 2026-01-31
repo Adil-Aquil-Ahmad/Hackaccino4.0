@@ -148,7 +148,7 @@ const Sponsors = () => {
   return (
     <div className="min-h-screen w-full mt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden font-sans mx-auto max-w-full pt-[150px]">
       
-      <div className="max-w-7xl mx-auto space-y-64 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-24 relative z-10">
         <div className="text-center space-y-6 pt-10">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 font-['Space_Grotesk']">
             OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">SPONSORS</span>
@@ -160,7 +160,7 @@ const Sponsors = () => {
 
         {/* Platinum Sponsors */}
         {sponsors.platinum.length > 0 && (
-          <div className="space-y-12 pb-12 mb-32">
+          <div className="space-y-8 pb-12 mb-32">
             <h2 className="text-3xl font-bold text-center text-blue-400 uppercase tracking-widest font-['Space_Grotesk']">Platinum Sponsors</h2>
             <div className="grid grid-cols-1 gap-16">
               {sponsors.platinum.map(s => <SponsorCard key={s.name} sponsor={s} tier="platinum" />)}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHandshake, FaExternalLinkAlt, FaUsers, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaHandshake, FaExternalLinkAlt, FaUsers, FaChalkboardTeacher, FaBriefcase } from 'react-icons/fa';
 
 const About = () => {
   return (
@@ -11,7 +11,7 @@ const About = () => {
           <div className="flex flex-col gap-6">
             <h1 className="text-[#D1C7FF] text-5xl font-bold font-sans">About</h1>
             <p className="text-[#a3a3a3] text-xl leading-[1.6]">
-              We're organizing <strong>Hackaccino 4.0</strong>, the 24-hour open innovation flagship hackathon of Bennett University, on <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">April 5-6, 2026</span>. Join us for an exciting event featuring diverse tracks including AI/ML, Web3, IoT, and AR/VR.
+              We're organizing <strong>Hackaccino 4.0</strong>, the 24-hour open innovation flagship hackathon of Bennett University, on <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">April 12-13, 2026</span>. Join us for an exciting event featuring diverse tracks including AI/ML, Web3, IoT, and AR/VR.
             </p>
             <p className="text-[#a3a3a3] text-xl leading-[1.6]">
               Building on the success of Hackaccino 3.0, which drew over 1,800 participants, and with partners like HackQuest, OpenBuild, Rabbitt AI, and PW (India's largest edtech company) already on board, <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">this year promises to be even bigger</span>.
@@ -30,7 +30,15 @@ const About = () => {
               </p>
               
               <div className="flex flex-col gap-4 mt-2">
-                <a href="https://form.hackaccino.tech/form/eu7zdbPA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#D1C7FF] no-underline text-lg hover:opacity-80 transition-opacity">
+                <a href="https://forms.hackaccino.in/sponsor" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#D1C7FF] no-underline text-lg hover:opacity-80 transition-opacity">
+                  <div className="p-2 rounded-lg bg-[#D1C7FF]/10">
+                    <FaBriefcase size={20} />
+                  </div>
+                  <span>Sponsor Form</span>
+                  <FaExternalLinkAlt size={16} className="opacity-70" />
+                </a>
+
+                <a href="https://forms.hackaccino.in/community-partner" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#D1C7FF] no-underline text-lg hover:opacity-80 transition-opacity">
                   <div className="p-2 rounded-lg bg-[#D1C7FF]/10">
                     <FaUsers size={20} />
                   </div>
@@ -38,7 +46,7 @@ const About = () => {
                   <FaExternalLinkAlt size={16} className="opacity-70" />
                 </a>
                 
-                <a href="https://form.hackaccino.tech/form/IlOpHrTV" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#D1C7FF] no-underline text-lg hover:opacity-80 transition-opacity">
+                <a href="https://forms.hackaccino.in/judge" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#D1C7FF] no-underline text-lg hover:opacity-80 transition-opacity">
                   <div className="p-2 rounded-lg bg-[#D1C7FF]/10">
                     <FaChalkboardTeacher size={20} />
                   </div>

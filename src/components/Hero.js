@@ -8,13 +8,13 @@ gsap.registerPlugin(useGSAP, SplitText);
 
 const DigitWheel = ({ digit }) => {
   return (
-    <div className="h-20 w-[50px] md:h-20 md:w-[50px] min-[480px]:h-[50px] min-[480px]:w-[32px] max-[479px]:h-[45px] max-[479px]:w-[28px] overflow-hidden relative bg-black/30 rounded-lg shadow-inner flex-shrink-0">
+    <div className="h-[40px] sm:h-[60px] md:h-[80px] w-[30px] sm:w-[45px] md:w-[60px] overflow-hidden relative bg-black/30 rounded-lg border border-white/10">
       <div 
-        className="flex flex-col transition-transform duration-[800ms] ease-[cubic-bezier(0.19,1,0.22,1)] will-change-transform"
+        className="flex flex-col transition-transform duration-800 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
         style={{ transform: `translateY(-${digit * 10}%)` }}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-          <div key={num} className="h-20 md:h-20 min-[480px]:h-[50px] max-[479px]:h-[45px] flex items-center justify-center font-['Space_Grotesk'] text-[3rem] md:text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] font-bold text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+          <div key={num} className="h-[40px] sm:h-[60px] md:h-[80px] flex items-center justify-center text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] font-bold font-['Space_Grotesk'] text-white">
             {num}
           </div>
         ))}
@@ -116,7 +116,7 @@ const Hero = () => {
   const secondsDigits = formatTime(timeLeft.seconds);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative bg-transparent overflow-hidden" ref={containerRef}>
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-transparent via-[rgba(20,10,0,0.3)] to-black" ref={containerRef}>
       <div className="text-center z-[2] relative px-5">
         <div className="mb-5" ref={badgeRef}>
           <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">APRIL 12-13, 2026</span>
@@ -129,41 +129,41 @@ const Hero = () => {
         <h2 className="font-['Poppins'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-white font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" ref={taglineRef}>Brewing Innovation</h2>
         <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[10px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
         
-        <div className="flex justify-center items-start gap-5 min-[480px]:gap-3 max-[479px]:gap-2 my-[30px] mx-auto py-[30px] px-[50px] min-[480px]:px-[15px] max-[479px]:px-[10px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
+        <div className="flex justify-center items-start gap-2 sm:gap-4 md:gap-6 my-[30px] mx-auto py-[30px] px-[20px] sm:px-[30px] md:px-[50px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
               {daysDigits.map((digit, index) => (
                 <DigitWheel key={`day-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Days</span>
+            <span className="font-['Poppins'] text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] uppercase text-white/80 mt-2 sm:mt-[15px] tracking-[2px] font-medium">Days</span>
           </div>
-          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] text-white/50 font-['Space_Grotesk'] leading-[45px] sm:leading-[60px] md:leading-[80px] mx-[2px] sm:mx-[5px]">:</div>
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
               {hoursDigits.map((digit, index) => (
                 <DigitWheel key={`hour-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Hours</span>
+            <span className="font-['Poppins'] text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] uppercase text-white/80 mt-2 sm:mt-[15px] tracking-[2px] font-medium">Hours</span>
           </div>
-          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] text-white/50 font-['Space_Grotesk'] leading-[45px] sm:leading-[60px] md:leading-[80px] mx-[2px] sm:mx-[5px]">:</div>
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
               {minutesDigits.map((digit, index) => (
                 <DigitWheel key={`min-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Minutes</span>
+            <span className="font-['Poppins'] text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] uppercase text-white/80 mt-2 sm:mt-[15px] tracking-[2px] font-medium">Minutes</span>
           </div>
-          <div className="text-[3rem] min-[480px]:text-[1.8rem] max-[479px]:text-[1.5rem] text-white/50 font-['Space_Grotesk'] leading-[80px] min-[480px]:leading-[50px] max-[479px]:leading-[45px] mx-[5px] min-[480px]:mx-[2px]">:</div>
+          <div className="text-[1.5rem] sm:text-[3rem] md:text-[4rem] text-white/50 font-['Space_Grotesk'] leading-[45px] sm:leading-[60px] md:leading-[80px] mx-[2px] sm:mx-[5px]">:</div>
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
               {secondsDigits.map((digit, index) => (
                 <DigitWheel key={`sec-${index}`} digit={digit} />
               ))}
             </div>
-            <span className="font-['Poppins'] text-[0.9rem] min-[480px]:text-[0.7rem] uppercase text-white/80 mt-[15px] min-[480px]:mt-2 tracking-[2px] font-medium">Seconds</span>
+            <span className="font-['Poppins'] text-[0.7rem] sm:text-[0.9rem] md:text-[1rem] uppercase text-white/80 mt-2 sm:mt-[15px] tracking-[2px] font-medium">Seconds</span>
           </div>
         </div>
         
