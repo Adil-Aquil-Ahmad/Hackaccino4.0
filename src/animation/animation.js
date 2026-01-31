@@ -46,6 +46,7 @@ const Animation = ({
 
     varying vec2 vUv;
     uniform float u_time;
+    uniform float u_intensity;
     uniform vec3 u_resolution;
     uniform sampler2D iChannel0;
     
@@ -165,6 +166,9 @@ const Animation = ({
         // Orange-Red Gradient
         // Map f (intensity) to a gradient from dark red to bright orange/yellow
         vec3 col = mix(vec3(1.0, 0.2, 0.0), vec3(1.0, 0.6, 0.1), f) * f;
+        
+        // Apply intensity control
+        col *= u_intensity;
                 
         fragColor = vec4(col,1.0);
     }
@@ -177,14 +181,16 @@ const Animation = ({
   `,
   uniforms = {},
   className = "absolute top-0 left-0 w-full h-screen -z-[1] pointer-events-none",
+  intensity = 1.0,
 }) => {
   const shaderUniforms = useMemo(
     () => ({
       u_time: { value: 0 },
       u_resolution: { value: new THREE.Vector3(1, 1, 1) },
+      u_intensity: { value: intensity },
       ...uniforms,
     }),
-    [uniforms]
+    [uniforms, intensity]
   );
 
   return (
