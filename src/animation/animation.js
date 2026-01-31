@@ -132,7 +132,8 @@ const Animation = ({
 
     void mainImage( out vec4 fragColor, in vec2 fragCoord )
     {
-      vec2 uv = (fragCoord.xy-.5*u_resolution.xy)/u_resolution.y;
+      float minRes = min(u_resolution.x, u_resolution.y);
+      vec2 uv = (fragCoord.xy-.5*u_resolution.xy)/minRes;
         
         vec3 rayOrigin = vec3(uv + vec2(0.,6.), -1. );
         

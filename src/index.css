@@ -10,6 +10,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @keyframes pulse-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+  }
+}
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
@@ -232,11 +248,11 @@
   }
 
   .sponsor-card.partner, .sponsor-card.inkind {
-    --glow-color-1: rgba(209, 199, 255, 0.5);
-    --glow-color-2: #D1C7FF;
+    --glow-color-1: rgba(242, 157, 56, 0.5);
+    --glow-color-2: #F29D38;
   }
   .sponsor-card.partner:hover, .sponsor-card.inkind:hover {
-    box-shadow: 0 12px 40px 0 rgba(209, 199, 255, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(242, 157, 56, 0.15);
   }
 
   .sponsor-card.wide .sponsor-card-content {
@@ -251,7 +267,7 @@
   }
 
   .barista-card:hover {
-    @apply -translate-y-[5px] shadow-[0_12px_40px_0_rgba(209,199,255,0.15)];
+    @apply -translate-y-[5px] shadow-[0_12px_40px_0_rgba(242,157,56,0.15)];
   }
 
   .barista-card::before {
@@ -260,9 +276,9 @@
     background: conic-gradient(
       from var(--angle),
       transparent 50%,
-      rgba(209, 199, 255, 0.5),
-      #7F5AF0,
-      rgba(209, 199, 255, 0.5),
+      rgba(242, 157, 56, 0.5),
+      #F24E1E,
+      rgba(242, 157, 56, 0.5),
       transparent 100%
     );
     translate: -50% -50%;

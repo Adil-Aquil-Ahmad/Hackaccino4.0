@@ -27,7 +27,7 @@ const Timeline = () => {
     <section id="timeline" className="text-white py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col gap-6 mb-8">
-          <h2 className="text-5xl font-bold text-[#D1C7FF] font-sans">Timeline</h2>
+          <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter']">Timeline</h2>
           <p className="text-[#a3a3a3] text-xl">
             Follow the schedule to make the most out of your 24 hours.
           </p>
@@ -37,15 +37,15 @@ const Timeline = () => {
           {schedule.map((day, index) => (
             <div key={index} className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6 relative overflow-hidden">
                {/* Decorative background elements matching the reference site style */}
-               <div className="absolute top-[20%] -left-5 w-[100px] h-[200px] bg-gradient-to-r from-[#D1C7FF] to-transparent opacity-10 rotate-[15deg] blur-[20px] pointer-events-none"></div>
+               <div className="absolute top-[20%] -left-5 w-[100px] h-[200px] bg-gradient-to-r from-[#F24E1E] to-transparent opacity-10 rotate-[15deg] blur-[20px] pointer-events-none"></div>
 
               <div className="mb-6 border-b border-white/10 pb-4">
-                <h3 className="text-[#D1C7FF] text-2xl font-semibold">{day.day}</h3>
+                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter']">{day.day}</h3>
               </div>
               <div className="flex flex-col gap-6">
                 {day.events.map((event, idx) => (
                   <div key={idx} className="flex flex-col gap-1">
-                    <span className={`text-sm ${event.highlight ? 'text-[#D1C7FF] font-bold' : 'text-[#a3a3a3] font-normal'}`}>{event.time}</span>
+                    <span className={`text-sm ${event.highlight ? 'text-[#F24E1E] font-bold' : 'text-[#a3a3a3] font-normal'}`}>{event.time}</span>
                     <span className={`text-lg ${event.highlight ? 'text-white font-semibold' : 'text-[#e5e5e5] font-normal'}`}>{event.description}</span>
                   </div>
                 ))}

@@ -35,9 +35,9 @@ const Footer = () => {
         <div className="flex flex-col gap-6 md:pl-10 items-center md:items-start">
           <div>
             <h4 className="text-base font-semibold mb-3 text-white">Contact Us</h4>
-            <a href="mailto:contact@hackaccino.tech" className="flex items-center gap-2 text-sm text-gray-400 no-underline transition-colors duration-200 bg-[#111] py-2 px-3 rounded-lg w-fit border border-[#222] hover:text-white hover:border-[#333] hover:bg-[#1a1a1a] mx-auto md:mx-0">
+            <a href="mailto:contact@hackaccino.in" className="flex items-center gap-2 text-sm text-gray-400 no-underline transition-colors duration-200 bg-[#111] py-2 px-3 rounded-lg w-fit border border-[#222] hover:text-white hover:border-[#333] hover:bg-[#1a1a1a] mx-auto md:mx-0">
               <span className="flex items-center justify-center"><FaEnvelope /></span>
-              <span>contact@hackaccino.tech</span>
+              <span>contact@hackaccino.in</span>
             </a>
           </div>
           
@@ -45,7 +45,7 @@ const Footer = () => {
             <h4 className="text-base font-semibold mb-3 text-white">Quick Links</h4>
             <ul className="list-none p-0 m-0 flex flex-col gap-2 text-sm">
               <li><a href="https://csi-bu.tech" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">About CSI →</a></li>
-              <li><a href="https://hackaccino.tech/Hackaccino-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">Sponsorship Brochure →</a></li>
+              <li><a href="https://hackaccino.in/brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">Sponsorship Brochure →</a></li>
             </ul>
           </div>
         </div>

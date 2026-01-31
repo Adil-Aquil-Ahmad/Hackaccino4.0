@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'xxl': '980px',
+      ...require('tailwindcss/defaultTheme').screens,
+    },
   },
   plugins: [],
 }

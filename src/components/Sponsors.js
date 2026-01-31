@@ -73,7 +73,7 @@ const Sponsors = () => {
         imgSectionClass: "w-full flex items-center justify-center",
         textSectionClass: "w-full",
         imgHeight: "h-12",
-        accentColor: "text-[#D1C7FF]"
+        accentColor: "text-[#F24E1E]"
       }
     };
 
@@ -151,7 +151,7 @@ const Sponsors = () => {
       <div className="max-w-7xl mx-auto space-y-24 relative z-10">
         <div className="text-center space-y-6 pt-10">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 font-['Space_Grotesk']">
-            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">SPONSORS</span>
+            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38]">SPONSORS</span>
           </h1>
           <p className="text-xl text-neutral-300 max-w-2xl mx-auto font-light leading-relaxed">
             Thank you to our amazing sponsors for making this event possible.
@@ -201,7 +201,7 @@ const Sponsors = () => {
         {/* Partners */}
         {(sponsors.partners.length > 0 || sponsors.inkind.length > 0) && (
           <div className="space-y-12 pb-12">
-            <h2 className="text-3xl font-bold text-center text-[#D1C7FF] uppercase tracking-widest font-['Space_Grotesk']">Partners</h2>
+            <h2 className="text-3xl font-bold text-center text-[#F29D38] uppercase tracking-widest font-['Space_Grotesk']">Partners</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {[...sponsors.partners, ...sponsors.inkind].map(s => <SponsorCard key={s.name} sponsor={s} tier="partner" />)}
             </div>

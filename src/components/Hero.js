@@ -116,17 +116,24 @@ const Hero = () => {
   const secondsDigits = formatTime(timeLeft.seconds);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-b from-transparent via-[rgba(20,10,0,0.3)] to-black" ref={containerRef}>
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden md:bg-gradient-to-b md:from-transparent md:via-[rgba(20,10,0,0.3)] md:to-black" ref={containerRef}>
       <div className="text-center z-[2] relative px-5">
         <div className="mb-5" ref={badgeRef}>
           <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">APRIL 12-13, 2026</span>
         </div>
         
         <div className="mb-5">
-          <h1 className="font-['Array-Bold'] text-6xl md:text-[6rem] max-md:text-[4rem] max-sm:text-[2.5rem] font-black text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)] m-0 tracking-[2px] break-words" id="hero-main-logo" ref={logoRef}>HACKACCINO 4.0</h1>
+          <h1
+            className="font-['Array-Bold'] whitespace-nowrap font-black text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)] m-0 tracking-[2px]"
+            style={{ fontSize: 'clamp(2.2rem, 8vw, 6rem)' }}
+            id="hero-main-logo"
+            ref={logoRef}
+          >
+            HACKACCINO 4.0
+          </h1>
         </div>
         
-        <h2 className="font-['Poppins'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-white font-bold drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" ref={taglineRef}>Brewing Innovation</h2>
+        <h2 className="font-['Inter'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-bold drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]" ref={taglineRef}>Brewing Innovation</h2>
         <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[10px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
         
         <div className="flex justify-center items-start gap-2 sm:gap-4 md:gap-6 my-[30px] mx-auto py-[30px] px-[20px] sm:px-[30px] md:px-[50px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
@@ -183,7 +190,7 @@ const Hero = () => {
             <FaInstagram />
           </a>
           <a 
-            href="https://twitter.com/csi_bu" 
+            href="https://x.com/csi_bu" 
             target="_blank" 
             rel="noreferrer"
             aria-label="Twitter"
@@ -201,7 +208,7 @@ const Hero = () => {
             <FaWhatsapp />
           </a>
           <a 
-            href="https://www.linkedin.com/company/computer-society-of-india-bennett-university-chapter/" 
+            href="https://www.linkedin.com/company/csi-bu/" 
             target="_blank" 
             rel="noreferrer"
             aria-label="LinkedIn"

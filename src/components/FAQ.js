@@ -35,7 +35,7 @@ const FAQ = () => {
     <section id="faq" className="py-20 px-6 text-white">
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col gap-6 mb-12 text-center">
-          <h2 className="text-5xl font-bold text-[#D1C7FF] font-sans">FAQ</h2>
+          <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter']">FAQ</h2>
           <p className="text-[#a3a3a3] text-xl">
             Everything you need to know about the hackathon.
           </p>
@@ -54,7 +54,7 @@ const FAQ = () => {
                 onClick={() => toggleFAQ(index)}
               >
                 {faq.question}
-                <span className="flex items-center text-[#D1C7FF]">
+                <span className="flex items-center text-[#F24E1E]">
                   {activeIndex === index ? <FaMinus /> : <FaPlus />}
                 </span>
               </button>
@@ -69,7 +69,7 @@ const FAQ = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-[#a3a3a3]">Still have questions? Email us at <a href="mailto:contact@hackaccino.in" className="text-[#D1C7FF] no-underline hover:underline">contact@hackaccino.in</a></p>
+          <p className="text-[#a3a3a3]">Still have questions? Email us at <a href="mailto:contact@hackaccino.in" className="text-[#F24E1E] no-underline hover:underline">contact@hackaccino.in</a></p>
         </div>
       </div>
     </section>

@@ -21,7 +21,7 @@ export const NavBody = ({ children, className }) => {
   return (
     <div
       className={cn(
-        "hidden md:flex items-center justify-between w-[85%] max-w-[1400px] mx-auto mt-6 px-10 py-3 rounded-full border border-white/[0.08] bg-black/20 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] transition-all duration-300",
+        "hidden xxl:flex items-center justify-between w-[85%] max-w-[1400px] mx-auto mt-6 px-10 py-3 rounded-full border border-white/[0.08] bg-black/20 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] transition-all duration-300",
         className
       )}
     >
@@ -101,7 +101,7 @@ export const NavbarButton = ({
 
 export const MobileNav = ({ children, className }) => {
   return (
-    <div className={cn("md:hidden block", className)}>
+    <div className={cn("block xxl:hidden", className)}>
       {children}
     </div>
   );
