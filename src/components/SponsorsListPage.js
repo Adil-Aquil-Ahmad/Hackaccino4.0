@@ -344,7 +344,7 @@ const SponsorsListPage = () => {
                   <CommunityCard key={idx} partner={partner} />
                 ))} 
                 direction="left" 
-                speed="normal"
+                speed="slow"
               />
             </div>
           </div>
