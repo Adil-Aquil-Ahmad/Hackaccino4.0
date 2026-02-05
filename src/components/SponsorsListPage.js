@@ -5,7 +5,7 @@ import Animation from '../animation/animation';
 import { NoiseBackground } from './ui/noise-background';
 import { CardContainer, CardBody, CardItem } from './ui/3d-card';
 import { RunningBorder } from './ui/running-border';
-import { InfiniteVerticalScroll } from './ui/infinite-vertical-scroll';
+import { InfiniteMovingCards } from './ui/infinite-moving-cards';
 import { motion } from 'framer-motion';
 
 const mainSponsors = [
@@ -104,10 +104,6 @@ const CommunityCard = ({ partner }) => (
 );
 
 const SponsorsListPage = () => {
-  // Split community partners for left and right columns
-  const leftColumnPartners = communityPartners.slice(0, Math.ceil(communityPartners.length / 2));
-  const rightColumnPartners = communityPartners.slice(Math.ceil(communityPartners.length / 2));
-
   return (
     <div className="sponsors-page relative overflow-x-hidden min-h-screen flex flex-col">
       <div 
@@ -286,7 +282,7 @@ const SponsorsListPage = () => {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6 flex flex-col items-center justify-center hover:bg-white/10 transition-all duration-300 w-full text-center group cursor-pointer relative overflow-hidden"
                 >
-                  <div className="w-24 h-24 mb-4 rounded-full bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
+                  <div className="w-32 h-32 mb-6 rounded-full bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
                      <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-4" />
                   </div>
                   <h4 className="text-lg font-bold text-white group-hover:text-[#F29D38] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
@@ -319,8 +315,8 @@ const SponsorsListPage = () => {
                   transition={{ delay: index * 0.05 }}
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6 flex flex-col items-center justify-center hover:bg-white/10 transition-all duration-300 w-full text-center group cursor-pointer"
                 >
-                   <div className="w-20 h-20 mb-4 rounded-lg bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
-                     <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-3" />
+                   <div className="w-28 h-28 mb-6 rounded-lg bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
+                     <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-4" />
                   </div>
                   <h4 className="text-lg font-bold text-white group-hover:text-[#F29D38] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
                   <p className="text-xs text-white/50 uppercase tracking-wider font-['Poppins']">{sponsor.type}</p>
@@ -342,46 +338,14 @@ const SponsorsListPage = () => {
               <span className="h-px w-12 bg-white/20"></span>
             </motion.h3>
             
-            <div className="relative h-[600px] flex items-center justify-center overflow-hidden w-full mx-auto">
-              {/* Left Column - Scrolling Up */}
-              <div className="h-full w-1/4 hidden md:block opacity-50 hover:opacity-100 transition-opacity duration-500">
-                 <InfiniteVerticalScroll 
-                   items={leftColumnPartners.map((partner, idx) => (
-                     <CommunityCard key={`left-${idx}`} partner={partner} />
-                   ))} 
-                   direction="up" 
-                   speed="slow"
-                 />
-              </div>
-
-              {/* Center Cool Visual */}
-              <div className="w-full md:w-1/2 flex justify-center items-center z-10 p-10">
-                 <CardContainer className="inter-var">
-                    <CardBody className="bg-black/80 backdrop-blur-2xl relative group/card border-white/20 w-80 h-80 rounded-full flex items-center justify-center border shadow-[0_0_100px_rgba(242,78,30,0.2)] hover:shadow-[0_0_150px_rgba(242,78,30,0.5)] transition-all duration-500">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#F24E1E]/20 to-[#F29D38]/20 animate-spin-slow pointer-events-none" style={{ animationDuration: '10s' }} />
-                      
-                      <CardItem translateZ="50" className="text-center">
-                        <h4 className="text-4xl font-black text-white mb-2 font-['Inter'] tracking-tighter">
-                          JOIN THE
-                        </h4>
-                        <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] drop-shadow-lg">
-                          COMMUNITY
-                        </span>
-                      </CardItem>
-                    </CardBody>
-                 </CardContainer>
-              </div>
-
-              {/* Right Column - Scrolling Down */}
-              <div className="h-full w-1/4 hidden md:block opacity-50 hover:opacity-100 transition-opacity duration-500">
-                 <InfiniteVerticalScroll 
-                   items={rightColumnPartners.map((partner, idx) => (
-                     <CommunityCard key={`right-${idx}`} partner={partner} />
-                   ))} 
-                   direction="down" 
-                   speed="slow"
-                 />
-              </div>
+            <div className="relative flex items-center justify-center overflow-hidden w-full mx-auto py-10">
+              <InfiniteMovingCards 
+                items={communityPartners.map((partner, idx) => (
+                  <CommunityCard key={idx} partner={partner} />
+                ))} 
+                direction="left" 
+                speed="normal"
+              />
             </div>
           </div>
 
