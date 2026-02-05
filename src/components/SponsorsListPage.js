@@ -120,7 +120,7 @@ const SponsorsListPage = () => {
         <Animation className="w-full h-full" intensity={0.5} />
       </div>
       <Header />
-      <main className="flex-grow relative z-10 w-full max-w-[1200px] mx-auto px-5 pt-40 flex flex-col items-center">
+      <main className="flex-grow relative z-10 w-full max-w-[1400px] mx-auto px-5 pt-40 flex flex-col items-center">
         {/* Hero Section */}
         <div className="w-full flex flex-col items-center justify-center min-h-[50vh] mb-24">
           <div className="w-full flex flex-col items-center justify-start pt-0 rounded-md">
@@ -137,7 +137,7 @@ const SponsorsListPage = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="w-[40rem] max-w-[90vw] h-20 relative mt-4"
+              className="w-[50rem] max-w-[90vw] h-20 relative mt-4"
             >
                {/* Gradients */}
                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-[2px] w-3/4 blur-sm" />
@@ -149,7 +149,7 @@ const SponsorsListPage = () => {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-8 py-16 md:px-12 md:py-24 w-full max-w-5xl mx-auto text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-[#F24E1E]/30 transition-colors duration-500"
+              className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-8 py-16 md:px-12 md:py-24 w-full max-w-7xl mx-auto text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-[#F24E1E]/30 transition-colors duration-500"
             >
               {/* Decorative background glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[#F24E1E]/5 via-[#F29D38]/5 to-[#F24E1E]/5 blur-3xl -z-10 group-hover:via-[#F29D38]/10 transition-all duration-500" />
@@ -200,7 +200,7 @@ const SponsorsListPage = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="w-[40rem] max-w-[90vw] h-6 relative mt-3 mx-auto"
+              className="w-[50rem] max-w-[90vw] h-6 relative mt-3 mx-auto"
             >
                {/* Gradients */}
                <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-[2px] w-3/4 blur-sm" />
@@ -214,7 +214,7 @@ const SponsorsListPage = () => {
           </motion.div>
           
           {/* Main Sponsors Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 w-full mx-auto">
             {mainSponsors.map((sponsor, index) => {
               const borderColor = {
                 platform: '#06B6D4', // cyan-500
@@ -275,7 +275,7 @@ const SponsorsListPage = () => {
               Partner Sponsors
               <span className="h-px w-12 bg-white/20"></span>
             </motion.h3>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full mx-auto">
               {partnerSponsors.map((sponsor, index) => (
                 <motion.div 
                   key={index}
@@ -308,7 +308,7 @@ const SponsorsListPage = () => {
               In-Kind Sponsors
               <span className="h-px w-12 bg-white/20"></span>
             </motion.h3>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full mx-auto">
               {inKindSponsors.map((sponsor, index) => (
                 <motion.div 
                   key={index}
@@ -342,7 +342,7 @@ const SponsorsListPage = () => {
               <span className="h-px w-12 bg-white/20"></span>
             </motion.h3>
             
-            <div className="relative h-[600px] flex items-center justify-center overflow-hidden w-full max-w-7xl mx-auto">
+            <div className="relative h-[600px] flex items-center justify-center overflow-hidden w-full mx-auto">
               {/* Left Column - Scrolling Up */}
               <div className="h-full w-1/4 hidden md:block opacity-50 hover:opacity-100 transition-opacity duration-500">
                  <InfiniteVerticalScroll 
