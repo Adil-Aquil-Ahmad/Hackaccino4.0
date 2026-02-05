@@ -5,6 +5,7 @@ import Animation from '../animation/animation';
 import { NoiseBackground } from './ui/noise-background';
 import { CardContainer, CardBody, CardItem } from './ui/3d-card';
 import { RunningBorder } from './ui/running-border';
+import { InfiniteVerticalScroll } from './ui/infinite-vertical-scroll';
 import { motion } from 'framer-motion';
 
 const mainSponsors = [
@@ -60,6 +61,17 @@ const inKindSponsors = [
   { name: "Symbolab", type: "In-Kind Sponsor", image: "/sponsors/symbolab.png" }
 ];
 
+// Placeholder for Community Partners (since we don't have explicit data yet)
+// We'll use a mix of existing sponsors to demonstrate the effect
+const communityPartners = [
+  ...partnerSponsors,
+  ...inKindSponsors,
+  { name: "DevFolio", type: "Community Partner", image: "" },
+  { name: "MLH", type: "Community Partner", image: "" },
+  { name: "Polygon", type: "Community Partner", image: "" },
+  { name: "Solana", type: "Community Partner", image: "" },
+];
+
 const SponsorImage = ({ src, name, className }) => {
   const [error, setError] = React.useState(false);
 
@@ -83,7 +95,19 @@ const SponsorImage = ({ src, name, className }) => {
   );
 };
 
+const CommunityCard = ({ partner }) => (
+  <div className="w-40 h-24 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-2 flex flex-col items-center justify-center hover:border-[#F24E1E]/50 hover:bg-white/5 transition-all duration-300">
+    <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
+      <SponsorImage src={partner.image} name={partner.name} className="w-full h-full p-2" />
+    </div>
+  </div>
+);
+
 const SponsorsListPage = () => {
+  // Split community partners for left and right columns
+  const leftColumnPartners = communityPartners.slice(0, Math.ceil(communityPartners.length / 2));
+  const rightColumnPartners = communityPartners.slice(Math.ceil(communityPartners.length / 2));
+
   return (
     <div className="sponsors-page relative overflow-x-hidden min-h-screen flex flex-col">
       <div 
@@ -306,21 +330,58 @@ const SponsorsListPage = () => {
           </div>
           
            {/* Community Partners */}
-          <div>
+          <div className="w-full mb-20">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl font-bold text-center text-white mb-10 font-['Inter'] flex items-center justify-center gap-4"
+              className="text-2xl md:text-3xl font-bold text-center text-white mb-16 font-['Inter'] flex items-center justify-center gap-4"
             >
               <span className="h-px w-12 bg-white/20"></span>
               Community Partners
               <span className="h-px w-12 bg-white/20"></span>
             </motion.h3>
-            <div className="flex flex-wrap justify-center gap-6">
-               <div className="px-8 py-4 rounded-full border border-dashed border-white/20 text-white/40 font-['Poppins'] animate-pulse">
-                 More exciting partners revealing soon...
-               </div>
+            
+            <div className="relative h-[600px] flex items-center justify-center overflow-hidden w-full max-w-7xl mx-auto">
+              {/* Left Column - Scrolling Up */}
+              <div className="h-full w-1/4 hidden md:block opacity-50 hover:opacity-100 transition-opacity duration-500">
+                 <InfiniteVerticalScroll 
+                   items={leftColumnPartners.map((partner, idx) => (
+                     <CommunityCard key={`left-${idx}`} partner={partner} />
+                   ))} 
+                   direction="up" 
+                   speed="slow"
+                 />
+              </div>
+
+              {/* Center Cool Visual */}
+              <div className="w-full md:w-1/2 flex justify-center items-center z-10 p-10">
+                 <CardContainer className="inter-var">
+                    <CardBody className="bg-black/80 backdrop-blur-2xl relative group/card border-white/20 w-80 h-80 rounded-full flex items-center justify-center border shadow-[0_0_100px_rgba(242,78,30,0.2)] hover:shadow-[0_0_150px_rgba(242,78,30,0.5)] transition-all duration-500">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#F24E1E]/20 to-[#F29D38]/20 animate-spin-slow pointer-events-none" style={{ animationDuration: '10s' }} />
+                      
+                      <CardItem translateZ="50" className="text-center">
+                        <h4 className="text-4xl font-black text-white mb-2 font-['Inter'] tracking-tighter">
+                          JOIN THE
+                        </h4>
+                        <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] drop-shadow-lg">
+                          COMMUNITY
+                        </span>
+                      </CardItem>
+                    </CardBody>
+                 </CardContainer>
+              </div>
+
+              {/* Right Column - Scrolling Down */}
+              <div className="h-full w-1/4 hidden md:block opacity-50 hover:opacity-100 transition-opacity duration-500">
+                 <InfiniteVerticalScroll 
+                   items={rightColumnPartners.map((partner, idx) => (
+                     <CommunityCard key={`right-${idx}`} partner={partner} />
+                   ))} 
+                   direction="down" 
+                   speed="slow"
+                 />
+              </div>
             </div>
           </div>
 
