@@ -17,7 +17,7 @@ const BaristasPage = () => {
       >
         <Animation className="w-full h-full" intensity={0.5} />
       </div>
-      <Header className="max-w-[1200px] relative z-10" />
+      <Header />
       <main className="w-[95%] max-w-[1300px] mx-auto relative z-10 pt-40 px-10 flex flex-col items-center justify-start bg-transparent">
         <div className="w-full flex flex-col items-center justify-start pt-0 rounded-md">
           <h1 className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]">

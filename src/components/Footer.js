@@ -2,7 +2,7 @@ import React from 'react';
 import { FaEnvelope } from 'react-icons/fa';
 import CsiLogo from '../assets/csi.png';
 import GithubLogo from '../assets/GitHub-Logo.png';
-import HackaccinoLogo from '../assets/hackaccino_logo.svg';
+import HackaccinoLogo from './HackaccinoLogo';
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
         {/* Column 1: Brand & Address */}
         <div className="flex flex-col gap-4 items-center md:items-start">
           <div className="flex items-center gap-4">
-            <img src={HackaccinoLogo} alt="Hackaccino" className="w-8 h-8 object-contain" /> 
+            <HackaccinoLogo className="w-8 h-8" />  
             <span className="text-xl font-bold tracking-tight font-['Array-Bold'] font-mono">Hackaccino</span>
           </div>
           <div className="text-gray-400 text-sm leading-relaxed">

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { FaBars, FaTimes } from "react-icons/fa";
-import hackaccinoLogo from '../../assets/hackaccino_logo.svg';
+import HackaccinoLogo from '../HackaccinoLogo';
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -41,7 +41,7 @@ export const NavbarLogo = ({ className, children, onClick }) => {
     >
       {children || (
         <>
-          <img src={hackaccinoLogo} alt="Hackaccino Logo" className="w-9 h-9 object-contain mb-1 gap-2" />
+          <HackaccinoLogo className="w-9 h-9 mb-1 gap-2" />
           <span className="font-['Array-semiBold'] text-2xl text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
             HACKACCINO
           </span>

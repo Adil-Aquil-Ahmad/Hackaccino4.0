@@ -3,7 +3,7 @@ import React from 'react';
 const Timeline = () => {
   const schedule = [
     {
-      day: "5th April — Day 1",
+      day: "11th April — Day 1",
       events: [
         { time: "9:00 AM - 10:30 AM", description: "Registrations" },
         { time: "10:30 AM - 12:00 PM", description: "Orientation" },
@@ -13,7 +13,7 @@ const Timeline = () => {
       ]
     },
     {
-      day: "6th April — Day 2",
+      day: "12th April — Day 2",
       events: [
         { time: "8:00 AM Onwards", description: "Breakfast (Provided by us)" },
         { time: "12:00 PM (Sharp)", description: "Hackathon Ends", highlight: true },

@@ -24,6 +24,14 @@
   .animate-pulse-slow {
     animation: pulse-slow 3s infinite ease-in-out;
   }
+  
+  @keyframes slide-fast {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(-90%); }
+  }
+  .animate-slide-fast {
+    animation: slide-fast 0.5s linear infinite;
+  }
 }
 
 @property --angle {

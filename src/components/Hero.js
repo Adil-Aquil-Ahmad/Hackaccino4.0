@@ -3,18 +3,22 @@ import { FaInstagram, FaTwitter, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/all';
+import GlitchText from './GlitchText';
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-const DigitWheel = ({ digit }) => {
+const DigitWheel = ({ digit, glitch }) => {
+  // Generate a random sequence of numbers for the glitch effect
+  const randomNumbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
+  
   return (
     <div className="h-[40px] sm:h-[60px] md:h-[80px] w-[30px] sm:w-[45px] md:w-[60px] overflow-hidden relative bg-black/30 rounded-lg border border-white/10">
       <div 
-        className="flex flex-col transition-transform duration-800 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-        style={{ transform: `translateY(-${digit * 10}%)` }}
+        className={`flex flex-col ${glitch ? 'animate-slide-fast' : 'transition-transform duration-800 ease-[cubic-bezier(0.34,1.56,0.64,1)]'}`}
+        style={glitch ? {} : { transform: `translateY(-${digit * 10}%)` }}
       >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
-          <div key={num} className="h-[40px] sm:h-[60px] md:h-[80px] flex items-center justify-center text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] font-bold font-['Space_Grotesk'] text-white">
+        {(glitch ? randomNumbers : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).map((num, i) => (
+          <div key={i} className="h-[40px] sm:h-[60px] md:h-[80px] flex items-center justify-center text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] font-bold font-['Space_Grotesk'] text-white">
             {num}
           </div>
         ))}
@@ -85,7 +89,7 @@ const Hero = () => {
   }, { scope: containerRef });
 
   useEffect(() => {
-    const targetDate = new Date('April 12, 2026 00:00:00').getTime();
+    const targetDate = new Date('April 11, 2026 00:00:00').getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
@@ -116,10 +120,12 @@ const Hero = () => {
   const secondsDigits = formatTime(timeLeft.seconds);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden md:bg-gradient-to-b md:from-transparent md:via-[rgba(20,10,0,0.3)] md:to-black" ref={containerRef}>
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" ref={containerRef}>
       <div className="text-center z-[2] relative px-5">
-        <div className="mb-5" ref={badgeRef}>
-          <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">APRIL 12-13, 2026</span>
+        <div className="mb-5 mt-[25px]" ref={badgeRef}>
+          <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">
+            APRIL 11-12, 2026
+          </span>
         </div>
         
         <div className="mb-5">

@@ -11,10 +11,10 @@ const About = () => {
           <div className="flex flex-col gap-6">
             <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter']">About</h1>
             <p className="text-[#a3a3a3] text-xl leading-[1.6]">
-              We're organizing <strong>Hackaccino 4.0</strong>, the 24-hour open innovation flagship hackathon of Bennett University, on <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">April 12-13, 2026</span>. Join us for an exciting event featuring diverse tracks including AI/ML, Web3, IoT, and AR/VR.
+              Get ready for Bennett’s biggest hackathon. <strong>Hackaccino 4.0</strong>, the flagship 24-hour open-innovation event by CSI, is back on <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">April 11–12, 2026</span>. Following last year’s incredible turnout of 3,600 hackers, we’re scaling up to give you more tracks, better mentorship, and bigger rewards.
             </p>
             <p className="text-[#a3a3a3] text-xl leading-[1.6]">
-              Building on the success of Hackaccino 3.0, which drew over 1,800 participants, and with partners like HackQuest, OpenBuild, Rabbitt AI, and PW (India's largest edtech company) already on board, <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">this year promises to be even bigger</span>.
+              From AI/ML to Web3, this is the ultimate platform to build, break, and innovate. If you’re ready to turn a wild idea into a working prototype in just one night, <span className="text-[#fafafa] font-medium [text-shadow:0_0_8px_rgba(255,255,255,0.5)]">we’ll see you there</span>.
             </p>
           </div>
 
