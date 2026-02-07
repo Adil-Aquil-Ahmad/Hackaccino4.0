@@ -3,7 +3,6 @@ import { FaInstagram, FaTwitter, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { SplitText } from 'gsap/all';
-import GlitchText from './GlitchText';
 
 gsap.registerPlugin(useGSAP, SplitText);
 

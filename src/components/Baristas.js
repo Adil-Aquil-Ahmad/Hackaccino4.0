@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaInstagram, FaLinkedin, FaTwitter, FaGlobe } from 'react-icons/fa';
-import GlitchText from './GlitchText';
 import baristasData from '../data/baristas.json';
 
 const Baristas = () => {
