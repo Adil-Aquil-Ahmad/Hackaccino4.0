@@ -10,7 +10,12 @@ function AppContent() {
     <div className="w-full overflow-x-hidden min-h-screen relative">
       <div className="fixed inset-0 w-full h-full bg-black pointer-events-none z-0" />
       <div className="fixed inset-0 w-full h-full bg-gradient-to-b from-black via-[#381017]/40 to-[#FF3300]/10 pointer-events-none z-0" />
-      <div className="fixed w-[800px] h-[800px] -top-[10%] left-[20%] bg-[#FF3300] blur-[200px] rounded-full opacity-10 pointer-events-none z-0 animate-float" />
+      <div 
+        className="fixed w-[1200px] h-[1200px] -top-[20%] left-[10%] pointer-events-none z-0 animate-float"
+        style={{
+          background: 'radial-gradient(circle, rgba(255, 51, 0, 0.1) 0%, rgba(255, 51, 0, 0) 70%)'
+        }}
+      />
       
       <div className="relative z-10">
         <Routes>

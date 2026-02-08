@@ -50,7 +50,7 @@ const Animation = ({
     uniform vec3 u_resolution;
     uniform sampler2D iChannel0;
     
-    // Reduced from 256 for better performance and smoother frame rate
+    // Reduced for better performance
     #define STEP 128
     #define EPS .001
 
@@ -184,19 +184,25 @@ const Animation = ({
   className = "absolute top-0 left-0 w-full h-screen -z-[1] pointer-events-none",
   intensity = 1.0,
 }) => {
+  // Toggle this to change global animation brightness
+  // Options: 'bright' (default), 'dark'
+  const BRIGHTNESS_MODE = 'bright';
+  
+  const finalIntensity = intensity !== 1.0 ? intensity : (BRIGHTNESS_MODE === 'dark' ? 0.5 : 1.0);
+
   const shaderUniforms = useMemo(
     () => ({
       u_time: { value: 0 },
       u_resolution: { value: new THREE.Vector3(1, 1, 1) },
-      u_intensity: { value: intensity },
+      u_intensity: { value: finalIntensity },
       ...uniforms,
     }),
-    [uniforms, intensity]
+    [uniforms, finalIntensity]
   );
 
   return (
     <div className={className}>
-      <Canvas className="w-full h-full">
+      <Canvas className="w-full h-full" dpr={[1, 1.5]} gl={{ antialias: false, powerPreference: "high-performance" }}>
         <ShaderPlane
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

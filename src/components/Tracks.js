@@ -1,31 +1,36 @@
 import React from 'react';
-import { FaRobot, FaCloud, FaVrCardboard, FaLightbulb, FaLink } from 'react-icons/fa';
+import { FaRobot, FaCloud, FaVrCardboard, FaLightbulb, FaLink, FaMicrochip } from 'react-icons/fa';
 
 const Tracks = () => {
   const tracks = [
     {
       title: "AI/ML",
-      description: "Explore the frontiers of artificial intelligence and machine learning to create innovative solutions.",
+      description: "Design intelligent systems that learn from data, automate decisions, and solve real-world problems using artificial intelligence and machine learning.",
       icon: <FaRobot size={24} color="#F29D38" className="animate-pulse-slow" />
     },
     {
       title: "Cloud",
-      description: "Build scalable and resilient applications using modern cloud technologies and services.",
+      description: "Develop scalable, secure, and high-performance applications using cloud platforms and modern deployment technologies.",
       icon: <FaCloud size={24} color="#F29D38" className="animate-pulse-slow" />
     },
     {
       title: "AR/VR",
-      description: "Create immersive experiences and push the boundaries of augmented and virtual reality.",
+      description: "Build interactive augmented and virtual reality solutions that transform how users learn, play, and experience digital content.",
       icon: <FaVrCardboard size={24} color="#F29D38" className="animate-pulse-slow" />
     },
     {
-      title: "Educhain",
-      description: "Revolutionize education with blockchain by ensuring security and transparency.",
+      title: "IoT",
+      description: "Connect the physical world with the digital realm by building smart solutions using Internet of Things devices and sensors.",
+      icon: <FaMicrochip size={24} color="#F29D38" className="animate-pulse-slow" />
+    },
+    {
+      title: "Web3",
+      description: "Build decentralized applications and explore the future of the internet with blockchain technology and smart contracts.",
       icon: <FaLink size={24} color="#F29D38" className="animate-pulse-slow" />
     },
     {
       title: "Open Innovation",
-      description: "Bring your own innovative idea and build something amazing that solves real problems.",
+      description: "Propose and build innovative solutions to real-life challenges using any technology of your choice.",
       icon: <FaLightbulb size={24} color="#F29D38" className="animate-pulse-slow" />
     }
   ];

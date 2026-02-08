@@ -6,17 +6,14 @@ import { SplitText } from 'gsap/all';
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-const DigitWheel = ({ digit, glitch }) => {
-  // Generate a random sequence of numbers for the glitch effect
-  const randomNumbers = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
-  
+const DigitWheel = ({ digit }) => {
   return (
     <div className="h-[40px] sm:h-[60px] md:h-[80px] w-[30px] sm:w-[45px] md:w-[60px] overflow-hidden relative bg-black/30 rounded-lg border border-white/10">
       <div 
-        className={`flex flex-col ${glitch ? 'animate-slide-fast' : 'transition-transform duration-800 ease-[cubic-bezier(0.34,1.56,0.64,1)]'}`}
-        style={glitch ? {} : { transform: `translateY(-${digit * 10}%)` }}
+        className="flex flex-col transition-transform duration-800 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+        style={{ transform: `translateY(-${digit * 10}%)` }}
       >
-        {(glitch ? randomNumbers : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).map((num, i) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num, i) => (
           <div key={i} className="h-[40px] sm:h-[60px] md:h-[80px] flex items-center justify-center text-[1.5rem] sm:text-[2.5rem] md:text-[3.5rem] font-bold font-['Space_Grotesk'] text-white">
             {num}
           </div>
@@ -184,7 +181,7 @@ const Hero = () => {
           innovation, collaboration, and endless coffee!
         </p>
 
-        <div className="flex justify-center gap-5 sm:gap-[15px] z-10 py-2.5 px-[30px] sm:px-5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[50px] mx-auto w-fit sm:w-[90%]" ref={socialsRef}>
+        <div className="flex justify-center items-center gap-4 z-10 py-2 mx-auto w-fit" ref={socialsRef}>
           <a 
             href="https://www.instagram.com/hackaccino/" 
             target="_blank" 
@@ -194,6 +191,7 @@ const Hero = () => {
           >
             <FaInstagram />
           </a>
+          <span className="text-white/30 text-2xl font-thin translate-y-[3px]">|</span>
           <a 
             href="https://x.com/csi_bu" 
             target="_blank" 
@@ -203,6 +201,7 @@ const Hero = () => {
           >
             <FaTwitter />
           </a>
+          <span className="text-white/30 text-2xl font-thin translate-y-[3px]">|</span>
           <a 
             href="https://chat.whatsapp.com/JEeZsXsMtI266hzd96ebjz" 
             target="_blank" 
@@ -212,6 +211,7 @@ const Hero = () => {
           >
             <FaWhatsapp />
           </a>
+          <span className="text-white/30 text-2xl font-thin translate-y-[3px]">|</span>
           <a 
             href="https://www.linkedin.com/company/csi-bu/" 
             target="_blank" 

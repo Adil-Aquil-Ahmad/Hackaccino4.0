@@ -106,14 +106,14 @@ const CommunityCard = ({ partner }) => (
 const SponsorsListPage = () => {
   return (
     <div className="sponsors-page relative overflow-x-hidden min-h-screen flex flex-col">
-      <div 
-        className="fixed top-0 left-0 w-full h-screen -z-[1] pointer-events-none"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)'
-        }}
-      >
-        <Animation className="w-full h-full" intensity={0.5} />
+      <div className="fixed top-0 left-0 w-full h-screen -z-[1] pointer-events-none">
+        <Animation className="w-full h-full" />
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,1) 100%)'
+          }}
+        />
       </div>
       <Header />
       <main className="flex-grow relative z-10 w-full max-w-[1400px] mx-auto px-5 pt-40 flex flex-col items-center">

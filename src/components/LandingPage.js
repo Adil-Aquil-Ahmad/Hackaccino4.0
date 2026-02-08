@@ -11,14 +11,15 @@ import Animation from '../animation/animation';
 const LandingPage = () => {
   return (
     <div className="landing-page relative overflow-x-hidden">
-      <div 
-        className="absolute top-0 left-0 w-full h-[150vh] z-0 pointer-events-none"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)'
-        }}
-      >
+      <div className="absolute top-0 left-0 w-full h-[150vh] z-0 pointer-events-none">
         <Animation className="w-full h-full" />
+        {/* Gradient Overlay to mimic mask for better performance */}
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,1) 100%)'
+          }}
+        />
       </div>
       <div className="relative z-10">
         <Header />

@@ -8,18 +8,25 @@ import baristasData from '../data/baristas.json';
 const BaristasPage = () => {
   return (
     <div className="baristas-page relative overflow-x-hidden min-h-screen flex flex-col">
-      <div 
-        className="absolute top-0 left-0 w-full h-[150vh] z-0 pointer-events-none"
-        style={{
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.9) 55%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0.4) 85%, rgba(0,0,0,0) 100%)'
-        }}
-      >
-        <Animation className="w-full h-full" intensity={0.5} />
+      <div className="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none">
+        <Animation className="w-full h-full" />
+        <div 
+          className="absolute inset-0 w-full h-full"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,1) 100%)'
+          }}
+        />
       </div>
       <Header />
       <main className="w-[95%] max-w-[1300px] mx-auto relative z-10 pt-40 px-10 flex flex-col items-center justify-start bg-transparent">
-        <div className="w-full flex flex-col items-center justify-start pt-0 rounded-md">
+        <div className="flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+            <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] text-center px-4 leading-tight">
+              Our Baristas are hard at work. Stay tuned.
+            </h1>
+          </div>
+        </div>
+        <div className="w-full flex flex-col items-center justify-start pt-0 rounded-md hidden">
           <h1 className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]">
             Our Baristas
           </h1>
@@ -117,16 +124,6 @@ const BaristasPage = () => {
           </div>
         </div>
       </main>
-      <div className="flex-grow flex items-center justify-center relative z-10 w-full min-h-[50vh] px-5 pt-40 pb-40">
-        <div className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-8 py-16 md:px-12 md:py-24 w-full max-w-4xl mx-auto text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-[#F24E1E]/30 transition-colors duration-500">
-          {/* Decorative background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[#F24E1E]/5 via-[#F29D38]/5 to-[#F24E1E]/5 blur-3xl -z-10 group-hover:via-[#F29D38]/10 transition-all duration-500" />
-          
-          <h2 className="md:text-5xl text-3xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)] px-4">
-            We are brewing up something extraordinary...
-          </h2>
-        </div>
-      </div>
       <Footer />
     </div>
   );
