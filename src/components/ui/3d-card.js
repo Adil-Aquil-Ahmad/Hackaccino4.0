@@ -7,12 +7,13 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
+  isStatic = false,
 }) => {
   const containerRef = useRef(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
 
   const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || isStatic) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
     const x = (e.clientX - left - width / 2) / 25;
@@ -22,13 +23,15 @@ export const CardContainer = ({
 
   const handleMouseEnter = (e) => {
     setIsMouseEntered(true);
-    if (!containerRef.current) return;
+    if (!containerRef.current || isStatic) return;
   };
 
   const handleMouseLeave = (e) => {
     if (!containerRef.current) return;
     setIsMouseEntered(false);
-    containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    if (!isStatic) {
+      containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+    }
   };
 
   return (

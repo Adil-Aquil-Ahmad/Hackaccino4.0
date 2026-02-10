@@ -58,7 +58,7 @@ const inKindSponsors = [
   { name: "Xude", type: "In-Kind Sponsor", image: "/sponsors/xude.png" },
   { name: ".xyz", type: "In-Kind Sponsor", image: "/sponsors/xyz.png" },
   { name: "Appwrite", type: "In-Kind Sponsor", image: "/sponsors/appwrite.png" },
-  { name: "Symbolab", type: "In-Kind Sponsor", image: "/sponsors/symbolab.png" }
+  // { name: "Symbolab", type: "In-Kind Sponsor", image: "/sponsors/symbolab.png" }
 ];
 
 // Placeholder for Community Partners (since we don't have explicit data yet)
@@ -66,10 +66,10 @@ const inKindSponsors = [
 const communityPartners = [
   ...partnerSponsors,
   ...inKindSponsors,
-  { name: "DevFolio", type: "Community Partner", image: "" },
-  { name: "MLH", type: "Community Partner", image: "" },
-  { name: "Polygon", type: "Community Partner", image: "" },
-  { name: "Solana", type: "Community Partner", image: "" },
+  { name: "DevFolio", type: "Community Partner", image: "/sponsors/devfolio_v2.png" },
+  { name: "MLH", type: "Community Partner", image: "/sponsors/mlh_v2.png" },
+  { name: "Polygon", type: "Community Partner", image: "/sponsors/polygon_v2.png" },
+  { name: "Solana", type: "Community Partner", image: "/sponsors/solana_v2.png" },
 ];
 
 const SponsorImage = ({ src, name, className }) => {
@@ -220,18 +220,18 @@ const SponsorsListPage = () => {
               }[sponsor.tier] || '#F24E1E';
 
               return (
-                <CardContainer key={index} className="inter-var w-full h-full">
+                <CardContainer key={index} className="inter-var w-full h-full" isStatic={true}>
                   <CardBody className="bg-black/40 backdrop-blur-xl relative group/card border-white/10 hover:border-white/20 w-full h-full rounded-xl p-8 border transition-all duration-300 flex flex-col">
                     <RunningBorder color={borderColor} reverse={index % 2 !== 0} />
                     <div className="flex justify-between items-start mb-6">
                     <CardItem
-                      translateZ="50"
+                      translateZ="0"
                       className="text-2xl font-bold text-white font-['Inter']"
                     >
                       {sponsor.name}
                     </CardItem>
                     <CardItem
-                      translateZ="60"
+                      translateZ="0"
                       className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r ${sponsor.color} text-black shadow-lg`}
                     >
                       {sponsor.type}
@@ -240,13 +240,13 @@ const SponsorsListPage = () => {
                   
                   <CardItem
                     as="p"
-                    translateZ="60"
+                    translateZ="0"
                     className="text-white/70 text-sm leading-relaxed font-['Poppins'] mb-8 flex-grow"
                   >
                     {sponsor.description}
                   </CardItem>
                   
-                  <CardItem translateZ="100" className="w-full mt-auto">
+                  <CardItem translateZ="0" className="w-full mt-auto">
                     <div className={`w-full h-48 rounded-lg bg-gradient-to-br ${sponsor.color} p-[1px] group-hover/card:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300`}>
                       <div className="w-full h-full bg-black/80 rounded-lg overflow-hidden relative">
                          <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-8" />
