@@ -101,7 +101,7 @@ const Header = ({ className }) => {
           
           <div className="flex items-center gap-4">
             <a 
-              href="https://hackaccino.devfolio.co" 
+              href="https://hackculture.io/hackathons/hackaccino" 
               target="_blank" 
               rel="noreferrer"
             >
@@ -146,7 +146,7 @@ const Header = ({ className }) => {
             ))}
             <div className="flex w-full flex-col gap-4 mt-4">
               <a 
-                href="https://hackaccino.devfolio.co" 
+                href="https://hackculture.io/hackathons/hackaccino" 
                 target="_blank" 
                 rel="noreferrer"
                 className="w-full"

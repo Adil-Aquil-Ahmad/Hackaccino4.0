@@ -4,6 +4,7 @@ import FormsLanding from './components/FormsLanding';
 import LandingPage from './components/LandingPage';
 import BaristasPage from './components/BaristasPage';
 import SponsorsListPage from './components/SponsorsListPage';
+import AboutCSIPage from './components/AboutCSIPage';
 
 function AppContent() {
   return (
@@ -22,6 +23,7 @@ function AppContent() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/baristas" element={<BaristasPage />} />
           <Route path="/sponsors" element={<SponsorsListPage />} />
+          <Route path="/about-csi" element={<AboutCSIPage />} />
           <Route path="/forms" element={<FormsLanding />} />
         </Routes>
       </div>

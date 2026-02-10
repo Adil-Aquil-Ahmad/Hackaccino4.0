@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaEnvelope } from 'react-icons/fa';
 import CsiLogo from '../assets/csi.png';
-import GithubLogo from '../assets/GitHub-Logo.png';
+import GenesisLogo from '../assets/Genesis_Logo_Vertical.webp';
 import HackaccinoLogo from './HackaccinoLogo';
 
 const Footer = () => {
@@ -24,10 +25,14 @@ const Footer = () => {
 
         {/* Column 2: Partner Logos */}
         <div className="flex justify-center items-center h-full order-first md:order-none mb-6 md:mb-0">
-          <div className="flex items-center gap-6">
-            <img src={CsiLogo} alt="CSI Bennett" className="h-[70px] w-auto object-contain" />
-            <span className="text-4xl text-gray-600 font-light leading-none">×</span>
-            <img src={GithubLogo} alt="GitHub" className="h-[50px] w-auto object-contain brightness-0 invert" />
+          <div className="flex items-center gap-8 justify-center">
+            <div className="w-[120px] flex justify-center">
+              <img src={CsiLogo} alt="CSI Bennett" className="h-[80px] w-auto object-contain" />
+            </div>
+            <span className="text-4xl text-gray-600 font-light leading-none pt-2">×</span>
+            <div className="w-[120px] flex justify-center">
+              <img src={GenesisLogo} alt="Genesis" className="h-[80px] w-auto object-contain brightness-0 invert" />
+            </div>
           </div>
         </div>
 
@@ -44,7 +49,7 @@ const Footer = () => {
           <div>
             <h4 className="text-base font-semibold mb-3 text-white">Quick Links</h4>
             <ul className="list-none p-0 m-0 flex flex-col gap-2 text-sm">
-              <li><a href="https://csi-bu.tech" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">About CSI →</a></li>
+              <li><Link to="/about-csi" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">About CSI →</Link></li>
               <li><a href="https://hackaccino.in/brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-400 no-underline transition-all duration-200 inline-block hover:text-white hover:translate-x-[5px]">Sponsorship Brochure →</a></li>
             </ul>
           </div>
