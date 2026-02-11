@@ -65,7 +65,7 @@ const Sponsors = () => {
         imgSectionClass: "w-full flex flex-col gap-4",
         textSectionClass: "w-full",
         imgHeight: "h-12",
-        accentColor: "text-orange-700"
+        accentColor: "text-[#E61933]"
       },
       partner: {
         containerClass: "col-span-1",
@@ -191,7 +191,7 @@ const Sponsors = () => {
         {/* Bronze Sponsors */}
         {sponsors.bronze.length > 0 && (
           <div className="space-y-12 pb-12 mb-32">
-            <h2 className="text-3xl font-bold text-center text-orange-700 uppercase tracking-widest font-['Space_Grotesk']">Bronze Sponsors</h2>
+            <h2 className="text-3xl font-bold text-center text-[#E61933] uppercase tracking-widest font-['Space_Grotesk']">Bronze Sponsors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
               {sponsors.bronze.map(s => <SponsorCard key={s.name} sponsor={s} tier="bronze" />)}
             </div>

@@ -135,7 +135,7 @@ const Hero = () => {
           </h1>
         </div>
         
-        <h2 className="font-['Inter'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-bold drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]" ref={taglineRef}>Brewing Innovation</h2>
+        <h2 className="font-['Inter'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-bold drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]" ref={taglineRef}>Brewing Innovation</h2>
         <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[10px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
         
         <div className="flex justify-center items-start gap-2 sm:gap-4 md:gap-6 my-[30px] mx-auto py-[30px] px-[20px] sm:px-[30px] md:px-[50px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>

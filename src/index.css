@@ -46,7 +46,7 @@
     --blur: 20px;
     --border: rgba(255,255,255,0.25);
     --shadow: 0 8px 40px rgba(31,38,135,0.4);
-    --accent: linear-gradient(135deg, #ff6a00, #7f00ff);
+    --accent: linear-gradient(135deg, #E61933, #FF33CC);
     --text: white;
   }
 
@@ -248,19 +248,19 @@
   }
 
   .sponsor-card.bronze {
-    --glow-color-1: rgba(217, 119, 6, 0.5); /* amber-600 */
-    --glow-color-2: #D97706; /* amber-600 */
+    --glow-color-1: rgba(230, 25, 51, 0.5); /* neon red */
+    --glow-color-2: #E61933; /* neon red */
   }
   .sponsor-card.bronze:hover {
-    box-shadow: 0 12px 40px 0 rgba(217, 119, 6, 0.2);
+    box-shadow: 0 12px 40px 0 rgba(230, 25, 51, 0.2);
   }
 
   .sponsor-card.partner, .sponsor-card.inkind {
-    --glow-color-1: rgba(242, 157, 56, 0.5);
-    --glow-color-2: #F29D38;
+    --glow-color-1: rgba(255, 51, 204, 0.5); /* hot pink */
+    --glow-color-2: #FF33CC; /* hot pink */
   }
   .sponsor-card.partner:hover, .sponsor-card.inkind:hover {
-    box-shadow: 0 12px 40px 0 rgba(242, 157, 56, 0.15);
+    box-shadow: 0 12px 40px 0 rgba(255, 51, 204, 0.15);
   }
 
   .sponsor-card.wide .sponsor-card-content {
@@ -275,7 +275,7 @@
   }
 
   .barista-card:hover {
-    @apply -translate-y-[5px] shadow-[0_12px_40px_0_rgba(242,157,56,0.15)];
+    @apply -translate-y-[5px] shadow-[0_12px_40px_0_rgba(230,25,51,0.15)];
   }
 
   .barista-card::before {
@@ -284,9 +284,9 @@
     background: conic-gradient(
       from var(--angle),
       transparent 50%,
-      rgba(242, 157, 56, 0.5),
-      #F24E1E,
-      rgba(242, 157, 56, 0.5),
+      rgba(230, 25, 51, 0.5),
+      #E61933,
+      rgba(255, 51, 204, 0.5),
       transparent 100%
     );
     translate: -50% -50%;

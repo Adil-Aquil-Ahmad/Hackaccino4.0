@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const RunningBorder = ({ 
-  color = "#F24E1E",
+  color = "#E61933",
   borderWidth = "1px",
   reverse = false
 }) => {

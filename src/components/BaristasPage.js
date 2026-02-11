@@ -21,13 +21,13 @@ const BaristasPage = () => {
       <main className="w-[95%] max-w-[1300px] mx-auto relative z-10 pt-40 px-10 flex flex-col items-center justify-start bg-transparent">
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
-            <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] text-center px-4 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-['Inter'] text-center px-4 leading-tight">
               Our Baristas are hard at work. Stay tuned.
             </h1>
           </div>
         </div>
         <div className="w-full flex flex-col items-center justify-start pt-0 rounded-md hidden">
-          <h1 className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]">
+          <h1 className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]">
             Our Baristas
           </h1>
           <p className="text-center mt-4 text-white/100 font-['Poppins'] text-base md:text-xl w-full relative z-20 whitespace-nowrap tracking-widest">
@@ -36,20 +36,20 @@ const BaristasPage = () => {
           
           <div className="w-[40rem] h-20 relative mt-4">
              {/* Gradients */}
-             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-[2px] w-3/4 blur-sm" />
-             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-px w-3/4" />
-             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-[5px] w-1/4 blur-sm" />
-             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-px w-1/4" />
+             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-[2px] w-3/4 blur-sm" />
+             <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-px w-3/4" />
+             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-[5px] w-1/4 blur-sm" />
+             <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-px w-1/4" />
           </div>
 
           <div className="w-full flex flex-col gap-16 pb-20">
             {baristasData.map((section, sectionIndex) => (
               <div key={sectionIndex} className="w-full flex flex-col items-start justify-start">
                 <div className="w-fit flex flex-col mb-2 group cursor-default">
-                  <h2 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter']">
+                  <h2 className="text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-['Inter']">
                     {section.title}
                   </h2>
-                  <div className="w-full border-b-[1px] border-dashed border-[#F24E1E]/40 -mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="w-full border-b-[1px] border-dashed border-[#E61933]/40 -mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <p className="text-white/60 font-['Poppins'] text-base md:text-lg tracking-wide mb-8">
                   {section.description}
@@ -109,7 +109,7 @@ const BaristasPage = () => {
                               as="a"
                               href={barista.instagram.startsWith('http') ? barista.instagram : `https://${barista.instagram}`}
                               target="_blank"
-                              className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#F24E1E] to-[#F29D38] text-white text-[10px] font-bold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all"
+                              className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#E61933] to-[#FF33CC] text-white text-[10px] font-bold shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 transition-all"
                             >
                               Instagram
                             </CardItem>

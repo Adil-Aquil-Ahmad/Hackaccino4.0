@@ -108,13 +108,13 @@ const Header = ({ className }) => {
               <NoiseBackground 
                 containerClassName="w-fit p-[2px] rounded-full mx-auto" 
                 gradientColors={[ 
-                  "rgb(242, 78, 30)", 
-                  "rgb(242, 157, 56)", 
-                  "rgb(242, 118, 43)", 
+                  "rgb(230, 25, 51)", 
+                  "rgb(255, 51, 204)", 
+                  "rgb(230, 25, 51)", 
                 ]}
               >
                 <button 
-                  className="h-full w-full cursor-pointer rounded-full bg-gradient-to-r from-[#F24E1E] to-[#F29D38] px-6 py-2 text-white font-bold font-['Poppins'] shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)_inset,0px_0.5px_1px_0px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(242,78,30,0.6)] active:scale-95"
+                  className="h-full w-full cursor-pointer rounded-full bg-gradient-to-r from-[#E61933] to-[#FF33CC] px-6 py-2 text-white font-bold font-['Poppins'] shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)_inset,0px_0.5px_1px_0px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(230,25,51,0.6)] active:scale-95"
                 >
                   {buttonText}
                 </button> 

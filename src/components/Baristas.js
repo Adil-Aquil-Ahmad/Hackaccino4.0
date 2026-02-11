@@ -62,7 +62,7 @@ const Baristas = () => {
 
                 {/* Info Section */}
                 <div className="p-5 text-center relative z-20 bg-[#1a1a1a]">
-                  <h3 className="text-xl font-bold text-white font-['Space_Grotesk'] mb-1 group-hover:text-[#F29D38] transition-colors">
+                  <h3 className="text-xl font-bold text-white font-['Space_Grotesk'] mb-1 group-hover:text-[#FF33CC] transition-colors">
                     {member.name}
                   </h3>
                   <p className="text-sm text-gray-400 font-['Poppins'] uppercase tracking-wider">

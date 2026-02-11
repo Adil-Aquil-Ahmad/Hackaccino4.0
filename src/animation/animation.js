@@ -2,18 +2,15 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-const ShaderPlane = ({
-  vertexShader,
-  fragmentShader,
-  uniforms,
-}) => {
+const ShaderPlane = ({ vertexShader, fragmentShader, uniforms }) => {
   const meshRef = useRef(null);
   const { size } = useThree();
 
   useFrame((state) => {
     if (meshRef.current) {
       const material = meshRef.current.material;
-      material.uniforms.u_time.value = state.clock.elapsedTime * 0.5;
+      material.uniforms.u_time.value = state.clock.elapsedTime;
+      // Ensure resolution is updated on resize
       material.uniforms.u_resolution.value.set(size.width, size.height, 1.0);
     }
   });
@@ -26,7 +23,6 @@ const ShaderPlane = ({
         fragmentShader={fragmentShader}
         uniforms={uniforms}
         side={THREE.DoubleSide}
-        depthTest={false}
         depthWrite={false}
       />
     </mesh>
@@ -34,175 +30,101 @@ const ShaderPlane = ({
 };
 
 const Animation = ({
-  vertexShader = `
+  intensity = 1.0,
+  className = "absolute top-0 left-0 w-full h-screen -z-[1] pointer-events-none",
+}) => {
+  const vertexShader = `
     varying vec2 vUv;
     void main() {
       vUv = uv;
-    gl_Position = vec4(position, 1.0);
+      gl_Position = vec4(position, 1.0);
     }
-  `,
-  fragmentShader = `
-    precision highp float;
+  `;
 
+  const fragmentShader = `
+    precision highp float;
     varying vec2 vUv;
     uniform float u_time;
     uniform float u_intensity;
     uniform vec3 u_resolution;
-    uniform sampler2D iChannel0;
-    
-    // Reduced for better performance
-    #define STEP 128
-    #define EPS .001
 
-    float smin( float a, float b, float k )
-    {
-        float h = clamp( 0.5+0.5*(b-a)/k, 0.0, 1.0 );
-        return mix( b, a, h ) - k*h*(1.0-h);
-    }
-
-    const mat2 m = mat2(.8,.6,-.6,.8);
-
-    float noise( in vec2 x )
-    {
-      return sin(1.5*x.x)*sin(1.5*x.y);
-    }
-
-    float fbm6( vec2 p )
-    {
-        float f = 0.0;
-        f += 0.500000*(0.5+0.5*noise( p )); p = m*p*2.02;
-        f += 0.250000*(0.5+0.5*noise( p )); p = m*p*2.03;
-        f += 0.125000*(0.5+0.5*noise( p )); p = m*p*2.01;
-        f += 0.062500*(0.5+0.5*noise( p )); p = m*p*2.04;
-        //f += 0.031250*(0.5+0.5*noise( p )); p = m*p*2.01;
-        f += 0.015625*(0.5+0.5*noise( p ));
-        return f/0.96875;
-    }
-
-
-    mat2 getRot(float a)
-    {
-        float sa = sin(a), ca = cos(a);
-        return mat2(ca,-sa,sa,ca);
-    }
-
-
-    vec3 _position;
-
-    float sphere(vec3 center, float radius)
-    {
-        return distance(_position,center) - radius;
-    }
-
-    float swingPlane(float height)
-    {
-        vec3 pos = _position + vec3(0.,0.,u_time * 5.5);
-        float def =  fbm6(pos.xz * .25) * 0.5;
-        
-        float way = pow(abs(pos.x) * 34. ,2.5) *.0000125;
-        def *= way;
-        
-        float ch = height + def;
-        return max(pos.y - ch,0.);
-    }
-
-    float map(vec3 pos)
-    {
-        _position = pos;
-        
-        float dist;
-        dist = swingPlane(0.);
-        
-        float sminFactor = 5.25;
-        dist = smin(dist,sphere(vec3(0.,-15.,80.),60.),sminFactor);
-        return dist;
-    }
-
-
-    vec3 getNormal(vec3 pos)
-    {
-        vec3 nor = vec3(0.);
-        vec3 vv = vec3(0.,1.,-1.)*.01;
-        nor.x = map(pos + vv.zxx) - map(pos + vv.yxx);
-        nor.y = map(pos + vv.xzx) - map(pos + vv.xyx);
-        nor.z = map(pos + vv.xxz) - map(pos + vv.xxy);
-        nor /= 2.;
-        return normalize(nor);
-    }
-
-    void mainImage( out vec4 fragColor, in vec2 fragCoord )
-    {
-      float minRes = min(u_resolution.x, u_resolution.y);
-      vec2 uv = (fragCoord.xy-.5*u_resolution.xy)/minRes;
-        
-        vec3 rayOrigin = vec3(uv + vec2(0.,6.), -1. );
-        
-        vec3 rayDir = normalize(vec3(uv , 1.));
-        
-        rayDir.zy = getRot(.15) * rayDir.zy;
-        
-        vec3 position = rayOrigin;
-        
-        
-        float curDist;
-        int nbStep = 0;
-        
-        for(; nbStep < STEP;++nbStep)
-        {
-            curDist = map(position + (texture(iChannel0, position.xz) - .5).xyz * .005);
-            
-            if(curDist < EPS)
-                break;
-            position += rayDir * curDist * .5;
-        }
-        
-        float f;
-                
-        float dist = distance(rayOrigin,position);
-        f = dist /(98.);
-        f = float(nbStep) / float(STEP);
-        
-        f *= .9;
-        
-        // Orange-Red Gradient
-        // Map f (intensity) to a gradient from dark red to bright orange/yellow
-        vec3 col = mix(vec3(1.0, 0.2, 0.0), vec3(1.0, 0.6, 0.1), f) * f;
-        
-        // Apply intensity control
-        col *= u_intensity;
-                
-        fragColor = vec4(col,1.0);
-    }
     void main() {
-      vec4 fragColor;
-      vec2 fragCoord = vUv * u_resolution.xy;
-      mainImage(fragColor, fragCoord);
-      gl_FragColor = fragColor;
+        // --- CENTER THE COORDINATES ---
+        // Using vUv (0 to 1) is more reliable for centering across different screen sizes
+        vec2 uv = vUv * 2.0 - 1.0;
+        
+        // Adjust for aspect ratio so the circles remain circles
+        float aspect = u_resolution.x / u_resolution.y;
+        uv.x *= aspect;
+
+        // --- POLAR COORDINATES (Tunnel Logic) ---
+        float r = length(uv);
+        float a = atan(uv.y, uv.x);
+
+        // Warp space to create the infinite tunnel effect
+        // 1.0/r creates the depth. u_time moves it forward.
+        // Reduced the multiplier for 1.0/r to make the tunnel appear "wider" and bigger
+        vec2 warp = vec2(0.5 / r + u_time * 0.2, a / 3.14159);
+
+        // --- GRID / WIREFRAME PATTERN ---
+        // Create the "digital" grid lines
+        float rings = step(0.97, fract(warp.x * 8.0));        // Fewer, thicker rings for "bigger" look
+        float spokes = step(0.97, fract(warp.y * 10.0));      // Fewer spokes
+        float grid = max(rings, spokes);
+
+        // Add a "shimmer" to the grid lines so they aren't static
+        float shimmer = sin(warp.x * 15.0 + u_time * 4.0) * 0.5 + 0.5;
+        grid *= shimmer;
+
+        // --- COLOR PALETTE ---
+        vec3 spaceBlack  = vec3(0.01, 0.0, 0.02);  // Deepest space
+        vec3 spacePurple = vec3(0.1, 0.02, 0.2);   // Deep space purple
+        vec3 neonRed     = vec3(0.9, 0.1, 0.2);    // Hackaccino Red
+        vec3 hotPink     = vec3(1.0, 0.2, 0.8);    // Highlights
+        vec3 white       = vec3(1.0, 1.0, 1.0);
+
+        // --- COMPOSITION ---
+        // Create a deep space purple gradient background
+        vec3 color = mix(spacePurple, spaceBlack, r * 0.5);
+        
+        // Color the grid lines
+        vec3 gridColor = mix(neonRed, hotPink, sin(warp.y * 3.0) * 0.5 + 0.5);
+        color = mix(color, gridColor, grid);
+
+        // --- FOG & DEPTH ---
+        // Smooth out the center fade
+        float fog = smoothstep(0.0, 0.5, r);
+        color *= fog;
+
+        // --- GLOW PULSE ---
+        float pulse = exp(-15.0 * fract(warp.x * 0.5 + u_time * 0.4));
+        color += white * pulse * fog * 0.4;
+
+        // --- VIGNETTE ---
+        // Use the deep space purple for the vignette/outer edges
+        float vignette = smoothstep(2.2, 0.8, r);
+        color = mix(spaceBlack, color, vignette);
+
+        gl_FragColor = vec4(color * u_intensity, 1.0);
     }
-  `,
-  uniforms = {},
-  className = "absolute top-0 left-0 w-full h-screen -z-[1] pointer-events-none",
-  intensity = 1.0,
-}) => {
-  // Toggle this to change global animation brightness
-  // Options: 'bright' (default), 'dark'
-  const BRIGHTNESS_MODE = 'bright';
-  
-  const finalIntensity = intensity !== 1.0 ? intensity : (BRIGHTNESS_MODE === 'dark' ? 0.5 : 1.0);
+  `;
 
   const shaderUniforms = useMemo(
     () => ({
       u_time: { value: 0 },
       u_resolution: { value: new THREE.Vector3(1, 1, 1) },
-      u_intensity: { value: finalIntensity },
-      ...uniforms,
+      u_intensity: { value: intensity },
     }),
-    [uniforms, finalIntensity]
+    [intensity]
   );
 
   return (
     <div className={className}>
-      <Canvas className="w-full h-full" dpr={[1, 1.5]} gl={{ antialias: false, powerPreference: "high-performance" }}>
+      <Canvas 
+        className="w-full h-full" 
+        dpr={[1, 2]} 
+        gl={{ antialias: true, powerPreference: "high-performance" }}
+      >
         <ShaderPlane
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

@@ -38,7 +38,7 @@ const mainSponsors = [
     type: "Bronze Sponsor",
     description: "Sharp Economy is an AI-driven growth economy platform that empowers communities through Learn2Earn and Spend2Grow models, built on Web 3.0 technology to incentivize continuous learning and development.",
     tier: "bronze",
-    color: "from-orange-700 to-orange-900",
+    color: "from-[#E61933] to-[#FF33CC]",
     image: "/sponsors/sharp.png"
   }
 ];
@@ -96,9 +96,9 @@ const SponsorImage = ({ src, name, className }) => {
 };
 
 const CommunityCard = ({ partner }) => (
-  <div className="w-40 h-24 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-2 flex flex-col items-center justify-center hover:border-[#F24E1E]/50 hover:bg-white/5 transition-all duration-300">
+  <div className="w-40 h-24 bg-black/40 backdrop-blur-md border border-white/10 rounded-xl p-2 flex flex-col items-center justify-center hover:border-[#E61933]/50 hover:bg-white/5 transition-all duration-300">
     <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
-      <SponsorImage src={partner.image} name={partner.name} className="w-full h-full p-2" />
+      <SponsorImage src={partner.image} name={partner.name} className="w-full h-full" />
     </div>
   </div>
 );
@@ -124,7 +124,7 @@ const SponsorsListPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]"
+              className="md:text-6xl text-4xl lg:text-6xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]"
             >
               Sponsors
             </motion.h1>
@@ -136,22 +136,22 @@ const SponsorsListPage = () => {
               className="w-[50rem] max-w-[90vw] h-20 relative mt-4"
             >
                {/* Gradients */}
-               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-[2px] w-3/4 blur-sm" />
-               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-px w-3/4" />
-               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-[5px] w-1/4 blur-sm" />
-               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-px w-1/4" />
+               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-[2px] w-3/4 blur-sm" />
+               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-px w-3/4" />
+               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-[5px] w-1/4 blur-sm" />
+               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-px w-1/4" />
             </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}              transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-8 py-16 md:px-12 md:py-24 w-full max-w-7xl mx-auto text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-[#F24E1E]/30 transition-colors duration-500"
+              className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-8 py-16 md:px-12 md:py-24 w-full max-w-7xl mx-auto text-center shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-[#E61933]/30 transition-colors duration-500"
             >
               {/* Decorative background glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[#F24E1E]/5 via-[#F29D38]/5 to-[#F24E1E]/5 blur-3xl -z-10 group-hover:via-[#F29D38]/10 transition-all duration-500" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[#E61933]/5 via-[#FF33CC]/5 to-[#E61933]/5 blur-3xl -z-10 group-hover:via-[#FF33CC]/10 transition-all duration-500" />
               
               <p className="text-white/90 font-['Poppins'] text-lg md:text-2xl font-light tracking-wide leading-relaxed mb-10">
-                We are actively looking for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-bold">visionary partners</span> to fuel the next wave of innovation. <br className="hidden md:block"/> Join us in brewing the future!
+                We are actively looking for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-bold">visionary partners</span> to fuel the next wave of innovation. <br className="hidden md:block"/> Join us in brewing the future!
               </p>
 
               <a 
@@ -163,13 +163,13 @@ const SponsorsListPage = () => {
                 <NoiseBackground 
                   containerClassName="w-fit p-[2px] rounded-full mx-auto" 
                   gradientColors={[ 
-                    "rgb(242, 78, 30)", 
-                    "rgb(242, 157, 56)", 
-                    "rgb(242, 118, 43)", 
+                    "rgb(230, 25, 51)", 
+                    "rgb(255, 51, 204)", 
+                    "rgb(230, 25, 51)", 
                   ]}
                 >
                   <button 
-                    className="h-full w-full cursor-pointer rounded-full bg-gradient-to-r from-[#F24E1E] to-[#F29D38] px-12 py-4 text-white text-xl font-bold font-['Poppins'] shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)_inset,0px_0.5px_1px_0px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(242,78,30,0.6)] active:scale-95"
+                    className="h-full w-full cursor-pointer rounded-full bg-gradient-to-r from-[#E61933] to-[#FF33CC] px-12 py-4 text-white text-xl font-bold font-['Poppins'] shadow-[0px_2px_0px_0px_rgba(255,255,255,0.2)_inset,0px_0.5px_1px_0px_rgba(0,0,0,0.1)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(230,25,51,0.6)] active:scale-95"
                   >
                     Become a Sponsor
                   </button> 
@@ -187,7 +187,7 @@ const SponsorsListPage = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="md:text-5xl text-3xl lg:text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]">
+            <h2 className="md:text-5xl text-3xl lg:text-5xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] relative z-20 font-['Inter'] drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]">
               Past Sponsors
             </h2>
             
@@ -199,10 +199,10 @@ const SponsorsListPage = () => {
               className="w-[50rem] max-w-[90vw] h-6 relative mt-3 mx-auto"
             >
                {/* Gradients */}
-               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-[2px] w-3/4 blur-sm" />
-               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#F24E1E]/50 to-transparent h-px w-3/4" />
-               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-[5px] w-1/4 blur-sm" />
-               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#F29D38]/30 to-transparent h-px w-1/4" />
+               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-[2px] w-3/4 blur-sm" />
+               <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-[#E61933]/50 to-transparent h-px w-3/4" />
+               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-[5px] w-1/4 blur-sm" />
+               <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-[#FF33CC]/30 to-transparent h-px w-1/4" />
             </motion.div>
             <p className="text-white/70 font-['Poppins'] text-lg max-w-2xl mx-auto">
               Thank you to our sponsors for making this event possible!
@@ -216,8 +216,8 @@ const SponsorsListPage = () => {
                 platform: '#06B6D4', // cyan-500
                 gold: '#EAB308', // yellow-500
                 silver: '#9CA3AF', // gray-400
-                bronze: '#EA580C' // orange-600
-              }[sponsor.tier] || '#F24E1E';
+                bronze: '#E61933' // neon red
+              }[sponsor.tier] || '#E61933';
 
               return (
                 <CardContainer key={index} className="inter-var w-full h-full" isStatic={true}>
@@ -277,15 +277,15 @@ const SponsorsListPage = () => {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.05, borderColor: "rgba(242, 78, 30, 0.5)" }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(230, 25, 51, 0.5)" }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6 flex flex-col items-center justify-center hover:bg-white/10 transition-all duration-300 w-full text-center group cursor-pointer relative overflow-hidden"
                 >
-                  <div className="w-32 h-32 mb-6 rounded-full bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
+                  <div className="w-32 h-32 mb-6 rounded-full bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#E61933]/30 transition-colors">
                      <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-4" />
                   </div>
-                  <h4 className="text-lg font-bold text-white group-hover:text-[#F29D38] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
+                  <h4 className="text-lg font-bold text-white group-hover:text-[#FF33CC] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
                   <p className="text-xs text-white/50 uppercase tracking-wider font-['Poppins']">{sponsor.type}</p>
                 </motion.div>
               ))}
@@ -310,15 +310,15 @@ const SponsorsListPage = () => {
                   key={index}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  whileHover={{ scale: 1.05, borderColor: "rgba(242, 78, 30, 0.5)" }}
+                  whileHover={{ scale: 1.05, borderColor: "rgba(230, 25, 51, 0.5)" }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 md:p-6 flex flex-col items-center justify-center hover:bg-white/10 transition-all duration-300 w-full text-center group cursor-pointer"
                 >
-                   <div className="w-28 h-28 mb-6 rounded-lg bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#F24E1E]/30 transition-colors">
+                   <div className="w-28 h-28 mb-6 rounded-lg bg-white/5 flex items-center justify-center overflow-hidden border border-white/10 group-hover:border-[#E61933]/30 transition-colors">
                      <SponsorImage src={sponsor.image} name={sponsor.name} className="w-full h-full p-4" />
                   </div>
-                  <h4 className="text-lg font-bold text-white group-hover:text-[#F29D38] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
+                  <h4 className="text-lg font-bold text-white group-hover:text-[#FF33CC] transition-colors mb-2 font-['Inter']">{sponsor.name}</h4>
                   <p className="text-xs text-white/50 uppercase tracking-wider font-['Poppins']">{sponsor.type}</p>
                 </motion.div>
               ))}

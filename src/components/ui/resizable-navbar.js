@@ -65,7 +65,7 @@ export const NavItems = ({ items, className }) => {
           className="relative text-white hover:text-white transition-colors text-sm font-semibold font-['Poppins'] tracking-wide group"
         >
           {item.name}
-          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-[#F24E1E] to-[#F29D38] transition-all duration-300 group-hover:w-full" />
+          <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-[#E61933] to-[#FF33CC] transition-all duration-300 group-hover:w-full" />
         </a>
       ))}
     </div>
@@ -80,7 +80,7 @@ export const NavbarButton = ({
 }) => {
   const variants = {
     primary:
-      "bg-gradient-to-br from-[#F24E1E] to-[#F29D38] text-white hover:shadow-[0_0_25px_rgba(242,78,30,0.5)] border-none",
+      "bg-gradient-to-br from-[#E61933] to-[#FF33CC] text-white hover:shadow-[0_0_25px_rgba(230,25,51,0.5)] border-none",
     secondary:
       "bg-white/10 text-white hover:bg-white/20 border border-white/20",
   };

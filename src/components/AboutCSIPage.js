@@ -18,7 +18,7 @@ const AboutCSIPage = () => {
       </div>
       <Header />
       <main className="w-[95%] max-w-[1000px] mx-auto relative z-10 pt-40 px-6 md:px-10 flex flex-col items-center justify-start bg-transparent pb-20">
-        <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#F24E1E] to-[#F29D38] font-['Inter'] text-center mb-12 drop-shadow-[0_2px_10px_rgba(242,78,30,0.3)]">
+        <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-['Inter'] text-center mb-12 drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]">
           About CSI Bennett
         </h1>
         

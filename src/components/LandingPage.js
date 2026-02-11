@@ -11,13 +11,13 @@ import Animation from '../animation/animation';
 const LandingPage = () => {
   return (
     <div className="landing-page relative overflow-x-hidden">
-      <div className="absolute top-0 left-0 w-full h-[150vh] z-0 pointer-events-none">
+      <div className="fixed inset-0 w-full h-full z-0 pointer-events-none">
         <Animation className="w-full h-full" />
-        {/* Gradient Overlay to mimic mask for better performance */}
+        {/* Subtle Gradient Overlay to ensure readability at the bottom */}
         <div 
           className="absolute inset-0 w-full h-full"
           style={{
-            background: 'linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.6) 85%, rgba(0,0,0,1) 100%)'
+            background: 'radial-gradient(circle at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.8) 100%)'
           }}
         />
       </div>
