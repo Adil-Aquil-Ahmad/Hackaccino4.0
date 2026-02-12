@@ -15,7 +15,7 @@ const FAQ = () => {
     },
     {
       question: "Is there are registration/participation fees?",
-      answer: "No, participation in this hackathon is free of cost."
+      answer: "No, there is no registration fee. Participation in this hackathon is entirely free."
     },
     {
       question: "Will we get travel reimbursement?",
@@ -23,7 +23,7 @@ const FAQ = () => {
     },
     {
       question: "How will we get shortlisted?",
-      answer: "Based on the info provided in the registration form and a telephonic interview (if required), teams will be shortlisted for the hackathon."
+      answer: "Teams will be shortlisted for the hackathon based on the details submitted in the registration form, as well as an evaluation of their LinkedIn and GitHub profiles."
     }
   ];
 
