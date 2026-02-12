@@ -117,14 +117,14 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden" ref={containerRef}>
-      <div className="text-center z-[2] relative px-5">
-        <div className="mb-5 mt-[25px]" ref={badgeRef}>
-          <span className="mt-2.5 inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">
+      <div className="text-center z-[2] relative px-5 pt-20 sm:pt-14">
+        <div className="mb-2" ref={badgeRef}>
+          <span className="inline-block px-6 py-2.5 bg-white/10 border border-white/30 backdrop-blur-sm rounded-[50px] font-semibold text-[0.9rem] tracking-[1px] text-white shadow-[0_4px_15px_rgba(0,0,0,0.2)] font-['Space_Grotesk']">
             APRIL 11-12, 2026
           </span>
         </div>
         
-        <div className="mb-5">
+        <div className="mb-2">
           <h1
             className="font-['Array-Bold'] whitespace-nowrap font-black text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)] m-0 tracking-[2px]"
             style={{ fontSize: 'clamp(2.2rem, 8vw, 6rem)' }}
@@ -135,10 +135,10 @@ const Hero = () => {
           </h1>
         </div>
         
-        <h2 className="font-['Inter'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[15px] text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-bold drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]" ref={taglineRef}>Brewing Innovation</h2>
-        <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[10px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
+        <h2 className="font-['Inter'] text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.5rem] mb-[5px] text-transparent bg-clip-text bg-gradient-to-r from-[#E61933] to-[#FF33CC] font-bold drop-shadow-[0_2px_10px_rgba(230,25,51,0.3)]" ref={taglineRef}>Brewing Innovation</h2>
+        <p className="font-['Poppins'] text-[1.3rem] max-md:text-base mb-[5px] text-white/90 drop-shadow-[0_1px_5px_rgba(0,0,0,0.5)] px-[5px]" ref={subtitleRef}>The Ultimate 24-Hour Open Innovation Hackathon</p>
         
-        <div className="flex justify-center items-start gap-2 sm:gap-4 md:gap-6 my-[30px] mx-auto py-[30px] px-[20px] sm:px-[30px] md:px-[50px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
+        <div className="flex justify-center items-start gap-2 sm:gap-4 md:gap-6 my-[15px] mx-auto py-[20px] px-[20px] sm:px-[30px] md:px-[50px] bg-white/10 backdrop-blur-md border border-white/20 rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.2)] max-w-[800px] w-fit sm:w-[95%] max-[768px]:w-[95%]" ref={countdownRef}>
           <div className="flex flex-col items-center">
             <div className="flex gap-1.5">
               {daysDigits.map((digit, index) => (
