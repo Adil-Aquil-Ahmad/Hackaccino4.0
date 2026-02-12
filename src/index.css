@@ -54,6 +54,37 @@
     scroll-behavior: smooth;
   }
 
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar,
+  .landing-page::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track,
+  .landing-page::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-blur: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb,
+  .landing-page::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #E61933, #FF33CC);
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb:hover,
+  .landing-page::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FF33CC, #E61933);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #E61933 rgba(0, 0, 0, 0.3);
+  }
+
   body {
     @apply m-0 font-sans antialiased bg-[#242524] text-white pt-0;
     font-family: 'Inter', system-ui, sans-serif;
